@@ -8,7 +8,7 @@ public class Seminar extends EventType {
         this.Speaker = Speaker;
     }
     //getter for event var
-    public String getTopic(){
+    public String getSpeaker(){
         return Speaker;
     }
     //getter for event type

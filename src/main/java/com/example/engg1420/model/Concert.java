@@ -8,7 +8,7 @@ public class Concert extends EventType {
         this.age = age;
     }
     //getter for event var
-    public int getTopic(){
+    public int getAge(){
         return age;
     }
     //getter for event type
