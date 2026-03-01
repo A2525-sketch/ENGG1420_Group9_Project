@@ -3,13 +3,18 @@ package com.example.engg1420.model;
 public abstract class User {
     private String id;
     private String name;
-//constructor
-    public User(String id, String Name){
+
+    //Constructor
+    public User(String id, String name) {
         this.id = id;
         this.name = name;
     }
-    //getters
-    public String getid(){return id;}
-    public String getName(){return name;}
-public abstract String getUserType();
+    //Getters
+    public String getId() {
+        return this.id;
+    }
+    public String getName() {
+        return this.name;
+    }
+    public abstract String getUserType();
 }
