@@ -7,7 +7,8 @@ public abstract class EventType {
     private String date;
     private String location;
     private int capacity;
-
+    private int bookedSeats = 0;
+//constructors
     public EventType(String eventid, String title, String date, String location, int capacity){
         this.eventid = eventid;
         this.title = title;
@@ -15,6 +16,24 @@ public abstract class EventType {
         this.location = location;
         this.capacity = capacity;
     }
+    //seat controllers
+
+    public boolean hasOpenSeats(){
+        return bookedSeats < capacity;
+    }
+    public void bookSeat(){
+        if(hasOpenSeats()){
+            bookedSeats++;
+        }
+    }
+    public void cancelSeat(){
+        if(bookedSeats>0){
+            bookedSeats--;
+        }
+    }
+
+
+    //getters
     public String getEventid(){return eventid;}
     public String getTitle(){return title;}
     public String getDate(){return date;}
