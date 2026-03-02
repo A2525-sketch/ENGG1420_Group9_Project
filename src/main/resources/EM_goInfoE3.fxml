@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.engg1420.ui.EventManagerController"
+            prefHeight="400.0" prefWidth="600.0">
+<label text="eventid: 123"/>
+<label text="title: event 3"/>
+<label text="date: Jan 1st, 2026"/>
+<label text="location: University of guelph"/>
+<label text="capacity: 3"/>
+<label text="eventtype: Concert"/>
+<Button text="Close" onAction="#closeWindow"/>
+
+
+</AnchorPane>
