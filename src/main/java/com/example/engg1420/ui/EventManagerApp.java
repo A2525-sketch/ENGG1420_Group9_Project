@@ -7,9 +7,7 @@ import javafx.stage.Stage;
 
 public class EventManagerApp extends Application {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -18,8 +16,12 @@ public class EventManagerApp extends Application {
             Scene scene = new Scene(loader.load());
 
             stage.setScene(scene);
-            stage.setTitle("Booking System Phase One");
+            stage.setTitle("Event Manager");
             stage.show();
 
+
+    }
+    public static void main(String[] args) {
+        launch();
     }
 }

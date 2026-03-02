@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import com.example.engg1420.ui.MainApp;
+import com.example.engg1420.ui.EventManagerApp;
 public class MainController {
     String caseDefault = "/main";
     String caseWaitlist = "waitlist.fxml";
@@ -34,19 +34,9 @@ public class MainController {
     private void goEvent() throws Exception{//idk what throws exception does
         statusLabel.setText("Opening Event Management");
         //load a scene called EventManager
-
-        FXMLLoader evloader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
-        Scene evScene = new Scene(evloader.load());
-        Stage evStage = new Stage();
-        evStage.setScene(evScene);
-
-        MainApp a = new MainApp();//
-        a.setC(4);
-
-        a.start(evStage);
-
-
-
+        EventManagerApp Ev = new EventManagerApp();
+        Ev.start(new Stage());
+        Ev.launch();
 
 
     }

@@ -7,7 +7,16 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.engg1420.ui.EventManagerController" prefHeight="400.0" prefWidth="600.0">
-    <Label layoutX="300" layoutY="300" text="event 1"></Label>
+    <Label font="" layoutX="300" layoutY="300" text="name here"/>
+    <Button text="info"></Button>
+    <Button text="edit info"></Button>
+    <Button text="cancel"></Button>
     <Label text="event 2"></Label>
+    <Button text="info"></Button>
+    <Button text="edit info"></Button>
+    <Button text="cancel"></Button>
     <Label text="event 3"></Label>
+    <Button text="info"></Button>
+    <Button text="edit info"></Button>
+    <Button text="cancel"></Button>
 </AnchorPane>
