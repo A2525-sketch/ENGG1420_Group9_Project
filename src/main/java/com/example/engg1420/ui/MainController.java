@@ -19,9 +19,10 @@ public class MainController {
         bk.start(new Stage());
     }
     @FXML
-    private void goUser(){
+    private void goUser() throws Exception {
         statusLabel.setText("Opening User Management");
-
+        UserManagementApp userApp = new UserManagementApp();
+        userApp.start(new Stage());
     }
     @FXML
     private void goWaitlist(){
