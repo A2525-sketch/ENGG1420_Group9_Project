@@ -1,23 +1,48 @@
 package com.example.engg1420.ui;//under this folder
-
+//com.example.engg1420.ui.EventManagerController
+import com.example.engg1420.model.EventType;
+import com.example.engg1420.model.Workshop;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
+
+
+/*public String getEventid(){return eventid;}
+public String getTitle(){return title;}
+public String getDate(){return date;}
+public String getLocation(){return location;}
+public int getCapacity(){return capacity;}
+public abstract String getEventType();*/
+
 //@FXML allows fxml file to access different methods when action is performed
 
 
 public class EventManagerController {
+    @FXML
+    private Label name;
     //list of events(name, info(button), edit(button), cancel(button))
     @FXML//allows fxml file to reference this method
-    private void goInfoE1(){
+    private void goInfoE1() throws Exception {
+        EventManagerApp infoE1 = new EventManagerApp();
+        infoE1.start(new Stage());
+        //create event from event class
+        //use array list at index '0' to display information for different labels;
+        EventType e1 = new Workshop("0", "none", "0","University of Guelph", 0,"none");
+
 
     }
     @FXML
-    private void goEditInfoE1(){
-
+    private void goEditInfoE1()throws Exception {
+        EventManagerApp editInfoE1 = new EventManagerApp();
+        editInfoE1.start(new Stage());
     }
     @FXML
-    private void goCancelE1(){
+    private void goCancelE1()throws Exception {
+
 
     }
+
 
 
     //create new event
