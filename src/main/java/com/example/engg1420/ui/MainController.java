@@ -31,12 +31,18 @@ public class MainController {
         //load a scene called WaitlistManager
     }
     @FXML
-    private void goEvent() throws Exception{//idk what throws exception does
+    private void goEvent() throws Exception{
         statusLabel.setText("Opening Event Management");
         //load a scene called EventManager
+        //FXMLLoader evLoader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
+        //Scene evScene = new Scene(evLoader.load());
+        //Stage evStage = new Stage();
+
         EventManagerApp Ev = new EventManagerApp();
+
         Ev.start(new Stage());
-        Ev.launch();
+
+
 
 
     }

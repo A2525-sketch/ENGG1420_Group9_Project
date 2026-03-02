@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
-@Override
+    @Override
     public void start(Stage stage) throws Exception {//
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/main.fxml"));//references the main fxml
             Scene scene = new Scene(loader.load());
@@ -15,11 +15,11 @@ public class MainApp extends Application {
             stage.setTitle("Booking System Phase One");
             stage.show();
 
-}
+    }
 
 
 
-public static void main(String[] args){
+    public static void main(String[] args){
         launch();
     }
 }

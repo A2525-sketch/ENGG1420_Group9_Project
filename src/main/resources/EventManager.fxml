@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.engg1420.ui.EventManagerController" prefHeight="400.0" prefWidth="600.0">
-    <Label font="" layoutX="300" layoutY="300" text="name here"/>
-    <Button text="info"></Button>
-    <Button text="edit info"></Button>
-    <Button text="cancel"></Button>
-    <Label text="event 2"></Label>
-    <Button text="info"></Button>
-    <Button text="edit info"></Button>
-    <Button text="cancel"></Button>
-    <Label text="event 3"></Label>
-    <Button text="info"></Button>
-    <Button text="edit info"></Button>
-    <Button text="cancel"></Button>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.EventManagerController">
+    <Label text="name here" />
+    <Button layoutX="300.0" text="info" />
+    <Button layoutX="300.0" layoutY="30.0" text="edit info" />
+    <Button layoutX="300.0" layoutY="60.0" text="cancel" />
+    <Label layoutY="120.0" text="name here" />
+    <Button layoutX="300.0" layoutY="120.0" text="info" />
+    <Button layoutX="300.0" layoutY="150.0" text="edit info" />
+    <Button layoutX="300.0" layoutY="180.0" text="cancel" />
+    <Label layoutY="230.0" text="name here" />
+    <Button layoutX="300.0" layoutY="230.0" text="info" />
+    <Button layoutX="300.0" layoutY="260.0" text="edit info" />
+    <Button layoutX="300.0" layoutY="290.0" prefWidth="49.0" text="cancel" />
 </AnchorPane>
