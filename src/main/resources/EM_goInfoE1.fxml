@@ -10,6 +10,13 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.engg1420.ui.EventManagerController"
             prefHeight="400.0" prefWidth="600.0">
+<label text="eventid: 123"/>
+<label text="title: event 1"/>
+<label text="date: Jan 1st, 2026"/>
+<label text="location: University of guelph"/>
+<label text="capacity: 3"/>
+<label text="eventtype: workshop"/>
+<Button text="Close" onAction="#closeWindow"/>
 
 
 </AnchorPane>
