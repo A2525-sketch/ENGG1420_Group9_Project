@@ -13,7 +13,7 @@
     <Button layoutX="300.0" layoutY="150.0" text="edit info" />
     <Button layoutX="300.0" layoutY="180.0" text="cancel" />
     <Label layoutY="230.0" text="name here" />
-    <Button layoutX="300.0" layoutY="230.0" text="info" />
+    <Button layoutX="300.0" layoutY="230.0" text="info" onAction="#goInfoE3" />
     <Button layoutX="300.0" layoutY="260.0" text="edit info" />
     <Button layoutX="300.0" layoutY="290.0" prefWidth="49.0" text="cancel" />
 </AnchorPane>
