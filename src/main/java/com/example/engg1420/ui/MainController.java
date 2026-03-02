@@ -9,9 +9,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import com.example.engg1420.ui.EventManagerApp;
 public class MainController {
-    String caseDefault = "/main";
-    String caseWaitlist = "waitlist.fxml";
-    String caseEventManager = "/EventManager.fxml";
     @FXML
     private Label statusLabel;
     @FXML
@@ -31,12 +28,15 @@ public class MainController {
         //load a scene called WaitlistManager
     }
     @FXML
-    private void goEvent() throws Exception{//idk what throws exception does
+    private void goEvent() throws Exception{
         statusLabel.setText("Opening Event Management");
-        //load a scene called EventManager
+
+
         EventManagerApp Ev = new EventManagerApp();
+
         Ev.start(new Stage());
-        Ev.launch();
+
+
 
 
     }
