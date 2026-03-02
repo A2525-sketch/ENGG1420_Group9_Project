@@ -12,9 +12,11 @@ public class MainController {
     @FXML
     private Label statusLabel;
     @FXML
-    private void goBooking(){
+    private void goBooking() throws Exception{
 
         statusLabel.setText("Opening Booking Management");
+        BookingManagementApp bk = new BookingManagementApp();
+        bk.start(new Stage());
     }
     @FXML
     private void goUser(){
