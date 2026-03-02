@@ -31,24 +31,16 @@ public class MainController {
         //load a scene called WaitlistManager
     }
     @FXML
-    private void goEvent() throws Exception{//idk what throws exception does
-        statusLabel.setText("Opening Event Management");
+    private void goEvent() throws Exception{
         //load a scene called EventManager
 
         FXMLLoader evloader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
         Scene evScene = new Scene(evloader.load());
         Stage evStage = new Stage();
         evStage.setScene(evScene);
-
-        MainApp a = new MainApp();//
-        a.setC(4);
-
-        a.start(evStage);
-
-
-
-
-
+        evStage.setTitle("Event Manager");
+        evStage.show();
+        // removed launch and instead creating a stage as a popup
     }
 
 }
