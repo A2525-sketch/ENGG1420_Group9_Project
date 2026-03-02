@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import com.example.engg1420.ui.MainApp;
 public class MainController {
     String caseDefault = "/main";
-    String caseWaitlist = "waitlist.fxml";
+    String caseWaitlist = "/waitlist.fxml";
     String caseEventManager = "/EventManager.fxml";
     @FXML
     private Label statusLabel;
@@ -33,7 +33,7 @@ public class MainController {
     @FXML
     private void goEvent() throws Exception{
         //load a scene called EventManager
-
+statusLabel.setText("Opening Event Management");
         FXMLLoader evloader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
         Scene evScene = new Scene(evloader.load());
         Stage evStage = new Stage();
