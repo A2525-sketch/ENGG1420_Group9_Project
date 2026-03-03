@@ -24,9 +24,11 @@ public class MainController {
 
     }
     @FXML
-    private void goWaitlist(){
+    private void goWaitlist()throws Exception{
 
         statusLabel.setText("Opening Waitlist Management");
+        WaitlistManagementApp wl = new WaitlistManagementApp();
+        wl.start(new Stage());
         //load a scene called WaitlistManager
     }
     @FXML

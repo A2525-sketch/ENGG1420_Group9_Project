@@ -36,14 +36,14 @@ public class EventManagerController {
     private Label name;
     //list of events(name, info(button), edit(button), cancel(button))
 
-
+    static Label Status1 = new Label();
+    static Label Status2 = new Label();
+    static Label Status3 = new Label();
     @FXML//allows fxml file to reference this method
     private void goInfoE1() throws Exception {
         EM.setOpt(1);
         EM.start(new Stage());
-        Label Status1 = new Label();
-        Label Status2 = new Label();
-        Label Status3 = new Label();
+
         //EventManagerApp infoE1 = new EventManagerApp();
         //infoE1.start(new Stage());
 
@@ -94,13 +94,15 @@ public class EventManagerController {
 
     @FXML
     private void goCancelE3()throws Exception{
-
+        //Status1.setText("Status: " + );
     }
     @FXML
     private void closeWindow()throws Exception{
         EM.setOpt(7);
         EM.start(new Stage());
     }
+
+
 
 
 

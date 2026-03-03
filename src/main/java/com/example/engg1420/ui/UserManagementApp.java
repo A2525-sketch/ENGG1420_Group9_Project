@@ -17,4 +17,7 @@ public class UserManagementApp extends Application {
         stage.show();
 
     }
+    public static void main(String[] args){
+        launch();
+    }
 }
