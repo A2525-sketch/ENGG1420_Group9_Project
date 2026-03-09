@@ -9,7 +9,8 @@ public class UserManagementApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        FXMLLoader userLoader = new FXMLLoader(getClass().getResource("/UserManagement.fxml"));
+        //Change made from UserManagement.fxml to UserManager.fxml - Need to commit and push, but to where?
+        FXMLLoader userLoader = new FXMLLoader(getClass().getResource("/UserManager.fxml"));
         Scene scene = new Scene(userLoader.load());
 
         stage.setScene(scene);
