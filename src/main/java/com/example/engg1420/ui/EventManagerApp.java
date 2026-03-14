@@ -21,5 +21,6 @@ public class EventManagerApp extends Application {
             stage.setTitle("Booking System Phase One");
             stage.show();
 
+
     }
 }

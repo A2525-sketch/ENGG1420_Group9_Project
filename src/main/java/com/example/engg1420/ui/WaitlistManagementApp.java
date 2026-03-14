@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class WaitlistManagementApp {
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 
     @Override
@@ -23,5 +23,6 @@ public class WaitlistManagementApp {
         stage.show();
 
     }
+
 }
-}
+
