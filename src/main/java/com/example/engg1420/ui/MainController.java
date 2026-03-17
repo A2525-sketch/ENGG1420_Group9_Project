@@ -7,44 +7,39 @@ import javafx.scene.control.TextField;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import com.example.engg1420.ui.MainApp;
+import com.example.engg1420.ui.EventManagerApp;
 public class MainController {
-    String caseDefault = "/main";
-    String caseWaitlist = "waitlist.fxml";
-    String caseEventManager = "/EventManager.fxml";
     @FXML
     private Label statusLabel;
     @FXML
-    private void goBooking(){
+    private void goBooking() throws Exception{
 
         statusLabel.setText("Opening Booking Management");
+        BookingManagementApp bk = new BookingManagementApp();
+        bk.start(new Stage());
     }
     @FXML
-    private void goUser(){
+    private void goUser() throws Exception {
         statusLabel.setText("Opening User Management");
-
+        UserManagementApp userApp = new UserManagementApp();
+        userApp.start(new Stage());
     }
     @FXML
-    private void goWaitlist(){
+    private void goWaitlist()throws Exception{
 
         statusLabel.setText("Opening Waitlist Management");
+        WaitlistManagementApp wl = new WaitlistManagementApp();
+        wl.start(new Stage());
         //load a scene called WaitlistManager
     }
     @FXML
-    private void goEvent() throws Exception{//idk what throws exception does
+    private void goEvent() throws Exception{
         statusLabel.setText("Opening Event Management");
-        //load a scene called EventManager
 
-        FXMLLoader evloader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
-        Scene evScene = new Scene(evloader.load());
-        Stage evStage = new Stage();
-        evStage.setScene(evScene);
 
-        MainApp a = new MainApp();//
-        a.setC(4);
+        EventManagerApp Ev = new EventManagerApp();
 
-        a.start(evStage);
-
+        Ev.start(new Stage());
 
 
 
