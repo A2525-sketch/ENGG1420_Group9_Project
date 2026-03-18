@@ -20,7 +20,6 @@ public class WaitlistManagementApp extends Application {
         stage.setScene(scene);
         stage.setTitle("Booking System Phase One");
         stage.show();
-
     }
     public static void main(String[] args) {
         launch();
