@@ -11,6 +11,9 @@ import com.example.engg1420.ui.EventManagerApp;
 public class MainController {
     @FXML
     private Label statusLabel;
+
+    public EventManagerApp Ev = new EventManagerApp();
+
     @FXML
     private void goBooking() throws Exception{
 
@@ -36,13 +39,8 @@ public class MainController {
     private void goEvent() throws Exception{
         statusLabel.setText("Opening Event Management");
 
-
-        EventManagerApp Ev = new EventManagerApp();
-
+        Ev.setOpt(0);
         Ev.start(new Stage());
-
-
-
 
     }
 

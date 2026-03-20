@@ -12,55 +12,18 @@ public class EventManagerApp extends Application {
     public void setOpt(int opt){
         this.opt = opt;
     }
+
+
+
     @Override
-
-
     public void start(Stage stage) throws Exception {
-            if(opt == 0){
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
-                Scene scene = new Scene(loader.load());
-                stage.setScene(scene);
-                stage.setTitle("Event Manager");
-                stage.show();
-            }else if(opt == 1){//open info window for event 1
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/EM_goInfoE1.fxml"));
-                Scene scene = new Scene(loader.load());
-                s.setScene(scene);
-                s.setTitle("Info");
-                s.show();
-            }else if(opt == 2){//open Edit info window for event 1
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/EM_goEditInfoE1.fxml"));
-                Scene scene = new Scene(loader.load());
-                s.setScene(scene);
-                s.setTitle("Edit Info");
-                s.show();
-            }else if(opt == 3){//ed
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/EM_goInfoE2.fxml"));
-                Scene scene = new Scene(loader.load());
-                s.setScene(scene);
-                s.setTitle("Edit Info");
-                s.show();
-            }else if(opt == 4){//edit info event 2
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/EM_goEditInfoE2.fxml"));
-                Scene scene = new Scene(loader.load());
-                s.setScene(scene);
-                s.setTitle("Edit Info");
-                s.show();
-            }else if(opt == 5){// info event 2
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/EM_goInfoE3.fxml"));
-                Scene scene = new Scene(loader.load());
-                s.setScene(scene);
-                s.setTitle("Edit Info");
-                s.show();
-            }else if(opt == 6){//info event 3
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/EM_goEditInfoE3.fxml"));
-                Scene scene = new Scene(loader.load());
-                s.setScene(scene);
-                s.setTitle("Edit Info");
-                s.show();
-            }else if(opt == 7){//edit info event 3
-                s.close();
-            }
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
+        Scene scene = new Scene(loader.load());
+        stage.setScene(scene);
+        stage.setTitle("Event Manager");
+        stage.show();
+
 
 
 
