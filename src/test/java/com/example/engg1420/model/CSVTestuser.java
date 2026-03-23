@@ -1,13 +1,12 @@
 package com.example.engg1420.model;
 
-import com.example.engg1420.model.User;
-import com.example.engg1420.ui.CSVReaderSimple;
+import com.example.engg1420.ui.CSVReaderSimpleUser;
 import java.util.List;
 
-public class CSVTest {
+public class CSVTestuser {
     public static void main(String[] args) {
         try {
-            CSVReaderSimple reader = new CSVReaderSimple();
+            CSVReaderSimpleUser reader = new CSVReaderSimpleUser();
             List<User> users = reader.readfile();
 
             for (User u : users) {
