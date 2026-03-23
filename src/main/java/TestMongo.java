@@ -12,5 +12,6 @@ public class TestMongo {
         for (Document doc : users.find()) {
             System.out.println(doc.toJson());
         }
+
     }
 }
