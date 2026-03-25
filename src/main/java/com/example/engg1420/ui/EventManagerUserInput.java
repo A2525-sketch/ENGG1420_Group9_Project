@@ -8,7 +8,7 @@ public class EventManagerUserInput {
     private TextField inputField;
     public String getInput()throws Exception{
         if(inputField == null){
-            return "";
+            return " ";
         }else{
             return inputField.getText();
         }
