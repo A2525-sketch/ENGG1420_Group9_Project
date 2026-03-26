@@ -6,12 +6,27 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ShowInfoController {
-    public ShowInfoApp A = new ShowInfoApp();
-    public EditInfoApp B = new EditInfoApp();
-    public static Label eventid2;
+
+    @FXML
+    public Label eventid2;
+
+    private Stage stage = new Stage();
     @FXML
     public void goClose()throws Exception{
-
-        A.start(new Stage());
+        stage.close();
     }
+
+
+
+    public void setEventIdText(String str){
+        eventid2.setText("event id: " + str);
+    }
+
+    public void setStage(Stage stage){
+        this.stage = stage;
+    }
+
+
+
+
 }
