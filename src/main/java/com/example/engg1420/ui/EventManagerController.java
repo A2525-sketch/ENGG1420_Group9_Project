@@ -7,7 +7,9 @@ import com.example.engg1420.model.EventType;
 import com.example.engg1420.model.Workshop;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 
 
 
@@ -58,7 +60,6 @@ public class EventManagerController {
         EM.setOpt(2);
         EM.start(new Stage());
 
-
     }
     @FXML
     public void goCancelE1()throws Exception {
@@ -94,7 +95,7 @@ public class EventManagerController {
 
     @FXML
     private void goCancelE3()throws Exception{
-        //Status1.setText("Status: " + );
+        //
     }
     @FXML
     private void closeWindow()throws Exception{

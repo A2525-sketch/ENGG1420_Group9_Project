@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.Node?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.WaitlistManagementController" prefHeight="200.0" prefWidth="200.0" >
-
-    <Label layoutX="300" layoutY="300" text="event 1"/>
-    <Label text="event 2"/>
-    <Label text="event 3"/>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.WaitlistManagementController">
+    <children>
+        <Label layoutX="230.0" layoutY="20.0" style="-fx-font-size: 18; -fx-font-weight: bold;" text="Waitlist Management" />
+        <Label layoutX="60.0" layoutY="80.0" text="Event Name:" />
+        <TextField fx:id="eventNameField" layoutX="154.0" layoutY="75.0" prefHeight="26.0" prefWidth="219.0" />
+        <Button layoutX="400.0" layoutY="75.0" mnemonicParsing="false" onAction="#goViewWaitlist" text="View Waitlist" />
+        <Button layoutX="400.0" layoutY="115.0" mnemonicParsing="false" onAction="#goRemoveWaitlist" text="Remove Waitlisted User" />
+        <Button layoutX="400.0" layoutY="155.0" mnemonicParsing="false" onAction="#goPromoteUser" text="Promote Next User" />
+        <Label layoutX="60.0" layoutY="180.0" text="Output:" />
+        <TextArea fx:id="outputArea" layoutX="60.0" layoutY="200.0" prefHeight="160.0" prefWidth="480.0" wrapText="true" />
+    </children>
 </AnchorPane>
