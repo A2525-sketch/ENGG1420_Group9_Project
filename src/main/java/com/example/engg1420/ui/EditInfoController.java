@@ -3,6 +3,7 @@ package com.example.engg1420.ui;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -12,42 +13,44 @@ public class EditInfoController {
     @FXML
     public TextField eventid;
 
-    public String stre1;
+    public String inputText;
 
-    private Stage stage = new Stage();
+    public static Stage stage1 = new Stage();
 
-    private EventManagerController EMC;
+    public static EventManagerController EMC = new EventManagerController();
     public FXMLLoader loader;
+
     @FXML
     public void goApply()throws Exception{
-        loader = new FXMLLoader(getClass().getResource("/EditInfo.fxml"));
-        Parent root = loader.load();
-        EMC = loader.getController();
-        stre1 = eventid.getText();
-        System.out.println(eventid.getText());
-        EMC.updateStr(stre1);
-
+        EditInfoController e = loader.getController();
+        inputText = eventid.getText();
+        System.out.println("some info: " + e.eventid.getText());
+        EMC.updateStr(inputText);
     }
     @FXML
     public void goClose()throws Exception{
-        stage.close();
+        stage1.close();
     }
 
-    public void setStage(Stage stage){
-        this.stage = stage;
-    }
+
 
     public String getStr(){
-        return stre1;
+        return inputText;
     }
 
-    public void setCon(EventManagerController EMC){
-        this.EMC = EMC;
+    public EditInfoController getEIC(){
+        return loader.getController();
     }
 
+
+    public void setStage(Stage stage){
+        stage1 = stage;
+    }
     public void setLoader(FXMLLoader l){
         loader = l;
     }
+
+
 
 
 }

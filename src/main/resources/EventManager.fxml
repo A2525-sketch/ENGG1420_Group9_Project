@@ -5,15 +5,16 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.EventManagerController">
     <Label text="name here" />
-    <Button layoutX="300.0" text="info" onAction="#goShowInfo"/>
-    <Button layoutX="300.0" layoutY="30.0" text="edit info" onAction="#goEditInfo"/>
+    <Button layoutX="300.0" onAction="#goShowInfo" text="info" />
+    <Button layoutX="300.0" layoutY="30.0" onAction="#goEditInfo" text="edit info" />
     <Button layoutX="300.0" layoutY="60.0" text="cancel" />
     <Label layoutY="120.0" text="name here" />
     <Button layoutX="300.0" layoutY="120.0" text="info" />
     <Button layoutX="300.0" layoutY="150.0" text="edit info" />
     <Button layoutX="300.0" layoutY="180.0" text="cancel" />
     <Label layoutY="230.0" text="name here" />
-    <Button layoutX="300.0" layoutY="230.0" text="info"/>
+    <Button layoutX="300.0" layoutY="230.0" text="info" />
     <Button layoutX="300.0" layoutY="260.0" text="edit info" />
     <Button layoutX="300.0" layoutY="290.0" prefWidth="49.0" text="cancel" />
+   <ScrollBar layoutX="570.0" layoutY="28.0" orientation="VERTICAL" prefHeight="330.0" prefWidth="15.0" />
 </AnchorPane>

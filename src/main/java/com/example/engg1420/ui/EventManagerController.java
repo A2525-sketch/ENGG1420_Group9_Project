@@ -29,44 +29,47 @@ public abstract String getEventType();*/
 
 public class EventManagerController {
     public static EventManagerApp EM = new EventManagerApp();
-    public EditInfoController EIC = new EditInfoController();
-    public ShowInfoController SIC = new ShowInfoController();
-
+    public static EditInfoController EIC = new EditInfoController();
+    public static ShowInfoController SIC = new ShowInfoController();
+    public static FXMLLoader loader1;
+    public static FXMLLoader loader2;
 
     public static String strE1;
     public static Stage s = new Stage();
 
-    public static FXMLLoader loader;
+
+    //public static FXMLLoader loader;
     @FXML//allows fxml file to reference this method
     public void goEditInfo()throws Exception{
-        loader = new FXMLLoader(getClass().getResource("/EditInfo.fxml"));
-        Parent root = loader.load();
-
-        EIC = loader.getController();
-        EIC.setLoader(loader);
-        EIC.setCon(this);
-
+        loader2 = new FXMLLoader(getClass().getResource("/EditInfo.fxml"));
+        Parent root = loader2.load();
+        EIC = loader2.getController();
+        EIC.setLoader(loader2);
         Scene scene = new Scene(root);
-
-        EIC.setStage(s);
         s.setScene(scene);
+        EIC.setStage(s);
         s.show();
-
     }
 
     @FXML
     public void goShowInfo()throws Exception{
-        loader = new FXMLLoader(getClass().getResource("/ShowInfo.fxml"));
-        Parent root = loader.load();
-        SIC = loader.getController();
+        EIC = EIC.getEIC();
+        loader1 = new FXMLLoader(getClass().getResource("/ShowInfo.fxml"));
+        Parent root = loader1.load();
+        SIC = loader1.getController();
         strE1 = EIC.eventid.getText();
         SIC.setEventIdText(strE1);
+        SIC = loader1.getController();
         Scene scene = new Scene(root);
         SIC.setStage(s);
         s.setScene(scene);
         s.show();
 
 
+
+    }
+
+    public void setEditInfo(){
 
     }
 
@@ -78,12 +81,13 @@ public class EventManagerController {
         EM.start(new Stage());
     }
 
-    private void goApply(){
 
-    }
 
     public void updateStr(String str){
         strE1 = str;
+    }
+
+    public void createEvent(){
 
     }
 

@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 public class EventManagerApp extends Application {
     private int opt;
-
+    public static EventManagerApp e = new EventManagerApp();
     public static Stage s = new Stage();
     public void setOpt(int opt){
         this.opt = opt;
