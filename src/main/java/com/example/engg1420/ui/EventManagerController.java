@@ -43,11 +43,15 @@ public class EventManagerController {
 
     public static String strE1;
     public static Stage s = new Stage();
+    @FXML
     public Label EMCLabel;
+    @FXML
     public Button ShowInfoButton;
+    @FXML
     public Button EditInfoButton;
+    @FXML
     public Button CancelEventButton;
-    public VBox VBoxContainer;
+
 
     //array list for editinfo
     //ArrayList<EditInfoController> editInfoArray = new ArrayList<>(3);

@@ -18,7 +18,7 @@ public class EditInfoController {
     public static Stage stage1 = new Stage();
 
     public static EventManagerController EMC = new EventManagerController();
-    public EventManagerApp EMA = new EventManagerApp();
+    //public EventManagerApp EMA = new EventManagerApp();
     public FXMLLoader loader;
 
     @FXML
