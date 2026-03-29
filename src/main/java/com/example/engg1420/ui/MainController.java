@@ -40,7 +40,8 @@ public class MainController {
         statusLabel.setText("Opening Event Management");
 
         Ev.setOpt(0);
-        Ev.start(new Stage());
+        Ev.addToVBox(0);
+        //Ev.start(new Stage());
 
     }
 

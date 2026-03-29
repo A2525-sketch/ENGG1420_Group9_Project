@@ -9,9 +9,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 
 
@@ -34,8 +38,22 @@ public class EventManagerController {
     public static FXMLLoader loader1;
     public static FXMLLoader loader2;
 
+
+
+
     public static String strE1;
     public static Stage s = new Stage();
+    public Label EMCLabel;
+    public Button ShowInfoButton;
+    public Button EditInfoButton;
+    public Button CancelEventButton;
+    public VBox VBoxContainer;
+
+    //array list for editinfo
+    //ArrayList<EditInfoController> editInfoArray = new ArrayList<>(3);
+    //array list for showinfo
+    //ArrayList<ShowInfoController> showInfoArray = new ArrayList<>(3);
+
 
 
     //public static FXMLLoader loader;
@@ -69,9 +87,7 @@ public class EventManagerController {
 
     }
 
-    public void setEditInfo(){
 
-    }
 
 
 
@@ -88,8 +104,24 @@ public class EventManagerController {
     }
 
     public void createEvent(){
+        //edit info fxml loader
+        //put info into edit info array
+
+        //show info fxml loader
 
     }
+
+    public void goAddEvent()throws Exception{
+        //do operation for adding a EMControllerBlock into VBox
+        EM.addToVBox(1);
+        //set the loader as the one used in EventManagerApp
+        //EMcontainerloader
+        //EIC = EM.EMLoader.getController();
+
+        //show() EditInfo.fxml
+    }
+
+
 
 
 

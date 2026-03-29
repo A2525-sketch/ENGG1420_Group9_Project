@@ -18,12 +18,14 @@ public class EditInfoController {
     public static Stage stage1 = new Stage();
 
     public static EventManagerController EMC = new EventManagerController();
+    public EventManagerApp EMA = new EventManagerApp();
     public FXMLLoader loader;
 
     @FXML
     public void goApply()throws Exception{
         EditInfoController e = loader.getController();
         inputText = eventid.getText();
+
         System.out.println("some info: " + e.eventid.getText());
         EMC.updateStr(inputText);
     }
