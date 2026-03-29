@@ -14,13 +14,15 @@
             <Font name="Times New Roman" size="24.0" />
          </font>
       </Label>
-      <TableView layoutX="94.0" layoutY="68.0" prefHeight="200.0" prefWidth="414.0">
+      <TableView layoutX="55.0" layoutY="68.0" prefHeight="200.0" prefWidth="487.0" fx:id="tableView">
         <columns>
-          <TableColumn prefWidth="75.0" text="Name" />
-          <TableColumn prefWidth="75.0" text="User ID" />
-            <TableColumn prefWidth="75.0" text="User Name" />
-            <TableColumn prefWidth="75.0" text="Password" />
-            <TableColumn prefWidth="112.0" text="Booked Event(s)" />
+            <TableColumn prefWidth="75.0" text="Name" fx:id="nameColumn"/>
+            <TableColumn prefWidth="75.0" text="User ID" fx:id="idColumn"/>
+            <TableColumn prefWidth="75.0" text="User Type" fx:id="userTypeColumn"/>
+            <TableColumn prefWidth="75.0" text="User Name" fx:id="userNameColumn"/>
+            <TableColumn prefWidth="75.0" text="Password" fx:id="passwordColumn"/>
+            <TableColumn prefWidth="112.0" text="Booked Event(s)" fx:id="eventsBookedColumn"/>
+
         </columns>
       </TableView>
    </children>
