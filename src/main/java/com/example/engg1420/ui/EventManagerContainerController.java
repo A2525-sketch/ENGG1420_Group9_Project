@@ -7,7 +7,7 @@ import javafx.scene.layout.VBox;
 public class EventManagerContainerController {
     public static EventManagerApp EM = new EventManagerApp();
     //public FXMLLoader loader8 = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
-    public FXMLLoader loader8;
+    public static FXMLLoader loader8;
     public static EventManagerContainerController emc;
 
 
@@ -16,6 +16,7 @@ public class EventManagerContainerController {
 
     @FXML
     public void goAddEvent()throws Exception{
+        loader8 = EM.getEMContainerLoader();
         EM.EMContainerController = loader8.getController();
         EM.addToVBox(1);
 
@@ -32,5 +33,9 @@ public class EventManagerContainerController {
 
     public void setLoader8(FXMLLoader l){
         loader8 = l;
+    }
+
+    public FXMLLoader getLoader8(){
+        return loader8;
     }
 }
