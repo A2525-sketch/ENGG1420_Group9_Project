@@ -21,10 +21,11 @@ public class EventManagerApp extends Application {
     public static int count = 3;//a for loop will be bounded by this number
 
     public static FXMLLoader EMLoader;
-    public FXMLLoader EMContainerLoader = new FXMLLoader(getClass().getResource("/EventManagerContainer.fxml"));
+    public static FXMLLoader EMContainerLoader;
+
     public Stage sEM = new Stage();
     public Parent root1;
-    public Parent root2;
+    public static Parent root2;
 
 
 
@@ -88,6 +89,7 @@ public class EventManagerApp extends Application {
             }
         }else if(option == 1){
             EMContainerController = EMContainerLoader.getController();
+
             count = count+1;
             EMLoader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
 
@@ -102,6 +104,7 @@ public class EventManagerApp extends Application {
             EMController.EditInfoButton.setLayoutY((50*count)+35);
             EMController.CancelEventButton.setLayoutX(150);
             EMController.CancelEventButton.setLayoutY((50*count)+70);
+            EMContainerController.setLoader8(EMContainerLoader);
             EMContainerController.getVBoxContainer().getChildren().add(root1);
 
         }
@@ -109,8 +112,8 @@ public class EventManagerApp extends Application {
         /**/
 
 
-        Scene scene = new Scene(root2);
-        s.setScene(scene);
+        //Scene scene = new Scene(root2);
+        s.setScene(new Scene(root2));
         s.show();
 
 
@@ -118,10 +121,15 @@ public class EventManagerApp extends Application {
     public EventManagerController getEMController(){
         return EMLoader.getController();
     }
+    public EventManagerContainerController getEMContainerController(){return EMContainerLoader.getController();}
+    public FXMLLoader getEMContainerLoader(){
+        return EMContainerLoader;
+    }
 
 
 
     public void initializeStuff() throws Exception{
+        EMContainerLoader = new FXMLLoader(getClass().getResource("/EventManagerContainer.fxml"));
         root2 = EMContainerLoader.load();
     }
     public static void main(String[] args) {launch();}
