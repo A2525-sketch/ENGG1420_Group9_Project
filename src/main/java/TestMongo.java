@@ -1,17 +1,25 @@
-import com.mongodb.client.*;
+import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 
 public class TestMongo {
+
     public static void main(String[] args) {
-        MongoClient client = MongoClients.create("mongodb://localhost:27017");
-        MongoDatabase db = client.getDatabase("testdb");
-        MongoCollection<Document> users = db.getCollection("users");
+        try {
+            // Get the collection
+            MongoCollection<Document> collection = MongoConnection.getCollection();
 
-        users.insertOne(new Document("name", "..").append("age", 22));
+            // Create a sample user
+            Document userDoc = new Document("id", "001")
+                    .append("name", "test")
+                    .append("email", "testone@email.com")
+                    .append("usertype", "Student");
 
-        for (Document doc : users.find()) {
-            System.out.println(doc.toJson());
+            // Insert the user into MongoDB
+            collection.insertOne(userDoc);
+
+            System.out.println("User inserted successfully!");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
     }
 }
