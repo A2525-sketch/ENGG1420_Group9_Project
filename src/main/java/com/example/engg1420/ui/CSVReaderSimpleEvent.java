@@ -10,17 +10,17 @@ public class CSVReaderSimpleEvent {
 
         try (CSVReader reader = new CSVReader(new FileReader("src/main/resources/Final Project Files/events.csv"))) {
             List<String[]> rows = reader.readAll();
-
+// read file from source then add the all to Events array
             for (int i = 1; i < rows.size(); i++) {
                 String[] row = rows.get(i);
-                Events.add(new EventType(
-                        row[0],
-                        row[1],
-                        row[2],
-                        row[3],
-                        Integer.parseInt(row[4]),
-                        row[5],
-                        row[6]
+                Events.add(new EventType( // create new events with the params:
+                        row[0], // event id
+                        row[1], // title
+                        row[2], // date time
+                        row[3], // locaiton
+                        Integer.parseInt(row[4]), // capacity
+                        row[5],// status
+                        row[6] // event type
 
                 ));
             }

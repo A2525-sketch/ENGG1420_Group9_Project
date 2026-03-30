@@ -3,7 +3,7 @@ package com.example.engg1420.model;
 import com.example.engg1420.ui.CSVReaderSimpleEvent;
 import com.example.engg1420.ui.CSVReaderSimpleUser;
 import java.util.List;
-
+//test to ensure CSV reader works for respective object
 public class CSVTestEvents {
     public static void main(String[] args) {
         try {

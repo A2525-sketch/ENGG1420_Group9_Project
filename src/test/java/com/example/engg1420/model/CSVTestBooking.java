@@ -2,7 +2,7 @@ package com.example.engg1420.model;
 
 import com.example.engg1420.ui.CSVReaderSimpleBooking;
 import java.util.List;
-
+//test to ensure CSV reader works for respective object
 public class CSVTestBooking {
     public static void main(String[] args) {
         try {
