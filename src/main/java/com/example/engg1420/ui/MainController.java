@@ -39,9 +39,9 @@ public class MainController {
     private void goEvent() throws Exception{
         statusLabel.setText("Opening Event Management");
 
-        Ev.setOpt(0);
+
         Ev.initializeStuff();
-        Ev.addToVBox(0, new FXMLLoader());
+        Ev.start(new Stage());
         //Ev.start(new Stage());
 
     }

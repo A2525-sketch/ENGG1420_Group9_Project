@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -32,17 +33,19 @@ public abstract String getEventType();*/
 
 
 public class EventManagerController {
-    public static EventManagerApp EM = new EventManagerApp();
+
     public static EditInfoController EIC = new EditInfoController();
     public static ShowInfoController SIC = new ShowInfoController();
-    public static FXMLLoader loader1;
-    public static FXMLLoader loader2;
+    public static EventManagerContainerController CC = new EventManagerContainerController();
+    public FXMLLoader loader1;
+    public FXMLLoader loader2;
+    public int index;
 
 
 
 
-    public static String strE1;
-    public static Stage s = new Stage();
+    public String strE1;
+    public Stage s = new Stage();
     @FXML
     public Label EMCLabel;
     @FXML
@@ -52,19 +55,23 @@ public class EventManagerController {
     @FXML
     public Button CancelEventButton;
 
+    public double positionX;
+    public double positionY;
 
-    //array list for editinfo
-    //ArrayList<EditInfoController> editInfoArray = new ArrayList<>(3);
-    //array list for showinfo
-    //ArrayList<ShowInfoController> showInfoArray = new ArrayList<>(3);
+
+
 
 
 
     //public static FXMLLoader loader;
     @FXML//allows fxml file to reference this method
-    public void goEditInfo()throws Exception{
+    public void goEditInfo(MouseEvent event)throws Exception{
+        System.out.println(event.getX());
+        System.out.println(event.getY());
+
         loader2 = new FXMLLoader(getClass().getResource("/EditInfo.fxml"));
         Parent root = loader2.load();
+
         EIC = loader2.getController();
         EIC.setLoader(loader2);
         Scene scene = new Scene(root);
@@ -95,11 +102,7 @@ public class EventManagerController {
 
 
 
-    @FXML
-    private void closeWindow()throws Exception{
-        EM.setOpt(7);
-        EM.start(new Stage());
-    }
+
 
 
 
@@ -107,12 +110,16 @@ public class EventManagerController {
         strE1 = str;
     }
 
-    public void createEvent(){
-        //edit info fxml loader
-        //put info into edit info array
 
-        //show info fxml loader
 
+
+
+    public void setPosX(double d){
+        positionX = d;
+    }
+
+    public void setPosY(double d){
+        positionY = d;
     }
 
 

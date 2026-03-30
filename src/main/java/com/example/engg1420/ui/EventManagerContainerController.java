@@ -2,18 +2,33 @@ package com.example.engg1420.ui;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class EventManagerContainerController {
     public static EventManagerApp EM = new EventManagerApp();
-    //public FXMLLoader loader8 = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
+
+
     public static FXMLLoader loader8;
     public static EventManagerContainerController emc;
 
 
+
+
     @FXML
     public VBox VBoxContainer;
+
+
+    @FXML
+    public AnchorPane APContainer;
+
+    public Stage stage;
+    public Scene scene;
+
+
 
 
 
@@ -21,11 +36,21 @@ public class EventManagerContainerController {
     public void goAddEvent()throws Exception{
         loader8 = EM.getEMContainerLoader();
         EM.EMContainerController = loader8.getController();
-        EM.addToVBox(1, loader8);
+        EM.addToVBox();
+        EM.refreshVBox();
 
 
 
     }
+
+
+
+    @FXML
+    public void goShowPosition(MouseEvent event){
+        System.out.println("posY: " + event.getX());
+        System.out.println("posX: " + event.getY());
+    }
+
 
     public VBox getVBoxContainer(){
         return VBoxContainer;
@@ -42,5 +67,12 @@ public class EventManagerContainerController {
         return loader8;
     }
 
-    //public Stage getCurrentStage(){}
+    public void setCurrentStage(Stage s){
+        stage = s;
+    }
+
+
+    public void setCurrentScene(Scene s){
+        scene = s;
+    }
 }
