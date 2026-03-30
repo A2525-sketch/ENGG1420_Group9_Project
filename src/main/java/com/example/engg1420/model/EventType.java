@@ -1,20 +1,24 @@
 package com.example.engg1420.model;
 //Parent of Concert, Seminar, Workshop
 
-public abstract class EventType {
+public class EventType {
     private String eventid;
     private String title;
     private String date;
     private String location;
     private int capacity;
     private int bookedSeats = 0;
+    private String eventType;
+    private String event;
 //constructors
-    public EventType(String eventid, String title, String date, String location, int capacity){
+    public EventType(String eventid, String title, String date, String location, int capacity, String eventType, String event){
         this.eventid = eventid;
         this.title = title;
         this.date = date;
         this.location = location;
         this.capacity = capacity;
+        this.eventType = eventType;
+        this.event = event;
     }
     //seat controllers
 
@@ -39,5 +43,17 @@ public abstract class EventType {
     public String getDate(){return date;}
     public String getLocation(){return location;}
     public int getCapacity(){return capacity;}
-    public abstract String getEventType();
+    public String getEventType() { return eventType; }
+    @Override
+    public String toString() {
+        return eventid + ", "
+                + title + ", "
+                + date + ", "
+                + location + ", "
+                + capacity + ", "
+                + bookedSeats + ", "
+                + eventType + ", "
+                + event + ", ";
+
+    }
 }

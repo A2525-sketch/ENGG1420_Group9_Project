@@ -13,10 +13,13 @@ public class MainController {
     private Label statusLabel;
     @FXML
     private void goBooking() throws Exception{
-
+//change statuslabel for debugging purposes and/or to let user know what is supposed to happen
         statusLabel.setText("Opening Booking Management");
+        //create new window for booking management
         BookingManagementApp bk = new BookingManagementApp();
+        //start new booking window
         bk.start(new Stage());
+        // other go functions are the same for each of the 4 buttons
     }
     @FXML
     private void goUser() throws Exception {

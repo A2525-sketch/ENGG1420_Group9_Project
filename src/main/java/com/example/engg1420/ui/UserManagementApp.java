@@ -9,8 +9,8 @@ public class UserManagementApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        FXMLLoader userLoader = new FXMLLoader(getClass().getResource("/UserManagement.fxml"));
-        Scene scene = new Scene(userLoader.load());
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/UserManagement.fxml"));
+        Scene scene = new Scene(loader.load());
 
         stage.setScene(scene);
         stage.setTitle("User Manager");
