@@ -6,9 +6,17 @@ import com.example.engg1420.model.Event;
 import com.example.engg1420.model.EventType;
 import com.example.engg1420.model.Workshop;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 
 
@@ -25,83 +33,102 @@ public abstract String getEventType();*/
 
 
 public class EventManagerController {
-    public static EventManagerApp EM = new EventManagerApp();
+    public static EventManagerApp  EM = new EventManagerApp();
+    public static EditInfoController EIC = new EditInfoController();
+    public static ShowInfoController SIC = new ShowInfoController();
 
-    /*public void seteMWin(EventManagerApp eMWin) {
-        this.eMWin = eMWin;
-    }*/
+    public FXMLLoader loader1;
+    public FXMLLoader loader2;
+    public int index;
+    public String Text1;
+
+
+
+
+    public String strE1;
+    public Stage s = new Stage();
+    @FXML
+    public Label EMCLabel;
+    @FXML
+    public Button ShowInfoButton;
+    @FXML
+    public Button EditInfoButton;
+    @FXML
+    public Button CancelEventButton;
+
+
+    public double positionX;
+    public double positionY;
 
 
 
 
 
-    private Label name;
-    //list of events(name, info(button), edit(button), cancel(button))
 
-    static Label Status1 = new Label();
-    static Label Status2 = new Label();
-    static Label Status3 = new Label();
+    //public static FXMLLoader loader;
     @FXML//allows fxml file to reference this method
-    private void goInfoE1() throws Exception {
-        EM.setOpt(1);
-        EM.start(new Stage());
-
-        //EventManagerApp infoE1 = new EventManagerApp();
-        //infoE1.start(new Stage());
-
-        //create event from event class
-        //use array list at index '0' to display information for different labels;
-        //EventType e1 = new Workshop("0", "none", "0","University of Guelph", 0,"none");//auto override the class with definition super(stuff); this.stuff = stuff;
-
-
-    }
-    @FXML
-    public void goEditInfoE1()throws Exception {
-        EM.setOpt(2);
-        EM.start(new Stage());
-
-    }
-    @FXML
-    public void goCancelE1()throws Exception {
-        //EM.setOpt();
-        EM.start(new Stage());
+    public void goEditInfo()throws Exception{
+        EM.showInformation();
+        System.out.println(index);
+        loader2 = new FXMLLoader(getClass().getResource("/EditInfo.fxml"));
+        Parent root = loader2.load();
+        EIC = loader2.getController();
+        EIC.setLoader(loader2);
+        Scene scene = new Scene(root);
+        s.setScene(scene);
+        EIC.setStage(s);
+        s.show();
     }
 
     @FXML
-    private void goInfoE2()throws Exception{
-        EM.setOpt(3);
-        EM.start(new Stage());
-    }
-    @FXML
-    private void goEditInfoE2()throws Exception{
-        EM.setOpt(4);
-        EM.start(new Stage());
-    }
-    @FXML
-    private void goCancelE2()throws Exception{
+    public void goShowInfo()throws Exception{
 
-    }
-    @FXML
-    private void goInfoE3()throws Exception{
-        EM.setOpt(5);
-        EM.start(new Stage());
-
-    }
-    @FXML
-    private void goEditInfoE3()throws Exception{
-        EM.setOpt(6);
-        EM.start(new Stage());
+        EIC = EIC.getEIC();
+        loader1 = new FXMLLoader(getClass().getResource("/ShowInfo.fxml"));
+        Parent root = loader1.load();
+        SIC = loader1.getController();
+        strE1 = EIC.eventid.getText();
+        SIC.setEventIdText(strE1);
+        SIC = loader1.getController();
+        Scene scene = new Scene(root);
+        SIC.setStage(s);
+        s.setScene(scene);
+        s.show();
     }
 
     @FXML
-    private void goCancelE3()throws Exception{
-        //
+    public void EditTest()throws Exception{
+
+        goEditInfo();
     }
-    @FXML
-    private void closeWindow()throws Exception{
-        EM.setOpt(7);
-        EM.start(new Stage());
+
+
+
+
+
+
+
+
+    public void updateStr(String str){
+        strE1 = str;
     }
+
+
+
+
+
+    public void setPosX(double d){
+        positionX = d;
+    }
+
+    public void setPosY(double d){
+        positionY = d;
+    }
+
+
+
+
+
 
 
 
