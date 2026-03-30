@@ -13,6 +13,7 @@ public class EditInfoController {
     @FXML
     public TextField eventid;
 
+
     public String inputText;
 
     public static Stage stage1 = new Stage();

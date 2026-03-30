@@ -12,6 +12,7 @@ public class EventManagerContainerController {
     public static EventManagerApp EM = new EventManagerApp();
 
 
+
     public static FXMLLoader loader8;
     public static EventManagerContainerController emc;
 
@@ -40,16 +41,11 @@ public class EventManagerContainerController {
         EM.refreshVBox();
 
 
-
     }
 
 
 
-    @FXML
-    public void goShowPosition(MouseEvent event){
-        System.out.println("posY: " + event.getX());
-        System.out.println("posX: " + event.getY());
-    }
+
 
 
     public VBox getVBoxContainer(){
@@ -75,4 +71,6 @@ public class EventManagerContainerController {
     public void setCurrentScene(Scene s){
         scene = s;
     }
+
+
 }

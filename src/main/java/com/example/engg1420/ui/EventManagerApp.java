@@ -11,14 +11,15 @@ import java.util.ArrayList;
 
 public class EventManagerApp extends Application {
 
-    public EventManagerController EMController = new EventManagerController();
-    public EventManagerContainerController EMContainerController = new EventManagerContainerController();
-    public static ArrayList<Parent> EMContainerList = new ArrayList<>(3);
+    public static EventManagerController EMController = new EventManagerController();
+    public static EventManagerContainerController EMContainerController = new EventManagerContainerController();
+    public static ArrayList<EventManagerController> EMContainerList = new ArrayList<>(3);
+    public static ArrayList<FXMLLoader> EMContainerLoaderList = new ArrayList<>(3);
     public static Stage s = new Stage();
 
     public static int count = 3;//a for loop will be bounded by this number
 
-    public FXMLLoader EMLoader;
+    public static FXMLLoader EMLoader;
     public static FXMLLoader EMContainerLoader;
 
 
@@ -52,9 +53,15 @@ public class EventManagerApp extends Application {
             //EMContainerList.add(root1);
 
             EMContainerController.getVBoxContainer().getChildren().add(root1);
+            EMLoader.setController(EMController);
+            EMContainerLoaderList.add(EMLoader);
+            EMContainerList.add(EMController);
+
 
 
         }
+
+
         s.setScene(scene2);
         //EMContainerController.setCurrentStage(s);
         EMContainerController.setCurrentScene(scene2);
@@ -80,7 +87,7 @@ public class EventManagerApp extends Application {
 
 
 
-            EMContainerController = EMContainerLoader.getController();
+            //EMContainerController = EMContainerLoader.getController();
 
             count = count+1;
             EMLoader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
@@ -97,19 +104,32 @@ public class EventManagerApp extends Application {
             EMController.EditInfoButton.setLayoutY(50+35);
             EMController.CancelEventButton.setLayoutX(150);
             EMController.CancelEventButton.setLayoutY(50+70);
-            EMController.index=count;
+            EMController.index=count-1;
 
 
             //EMContainerList.add(EMLoader.getController());
             EMContainerController.getVBoxContainer().getChildren().add(root1);
+            //EMContainerList.add(root1);
 
+            //for(int i = 0; i < count; i++){
+                //System.out.println(EMContainerList.get(i).index);
+            //}
+
+            
 
     }
+
 
     public void refreshVBox(){
         scene2.setRoot(root2);
         s.setScene(scene2);
         s.show();
+    }
+
+
+    public void showInformation()throws  Exception{
+        EMController = EMContainerList.getFirst();
+
     }
 
 

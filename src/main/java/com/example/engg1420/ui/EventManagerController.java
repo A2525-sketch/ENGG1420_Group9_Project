@@ -33,13 +33,14 @@ public abstract String getEventType();*/
 
 
 public class EventManagerController {
-
+    public static EventManagerApp  EM = new EventManagerApp();
     public static EditInfoController EIC = new EditInfoController();
     public static ShowInfoController SIC = new ShowInfoController();
-    public static EventManagerContainerController CC = new EventManagerContainerController();
+
     public FXMLLoader loader1;
     public FXMLLoader loader2;
     public int index;
+    public String Text1;
 
 
 
@@ -55,6 +56,7 @@ public class EventManagerController {
     @FXML
     public Button CancelEventButton;
 
+
     public double positionX;
     public double positionY;
 
@@ -65,13 +67,11 @@ public class EventManagerController {
 
     //public static FXMLLoader loader;
     @FXML//allows fxml file to reference this method
-    public void goEditInfo(MouseEvent event)throws Exception{
-        System.out.println(event.getX());
-        System.out.println(event.getY());
-
+    public void goEditInfo()throws Exception{
+        EM.showInformation();
+        System.out.println(index);
         loader2 = new FXMLLoader(getClass().getResource("/EditInfo.fxml"));
         Parent root = loader2.load();
-
         EIC = loader2.getController();
         EIC.setLoader(loader2);
         Scene scene = new Scene(root);
@@ -82,6 +82,7 @@ public class EventManagerController {
 
     @FXML
     public void goShowInfo()throws Exception{
+
         EIC = EIC.getEIC();
         loader1 = new FXMLLoader(getClass().getResource("/ShowInfo.fxml"));
         Parent root = loader1.load();
@@ -93,11 +94,13 @@ public class EventManagerController {
         SIC.setStage(s);
         s.setScene(scene);
         s.show();
-
-
-
     }
 
+    @FXML
+    public void EditTest()throws Exception{
+
+        goEditInfo();
+    }
 
 
 
