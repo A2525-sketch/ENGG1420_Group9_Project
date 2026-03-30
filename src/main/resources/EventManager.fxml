@@ -5,9 +5,9 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.engg1420.ui.EventManagerController">
 <children>
-    <Label fx:id="EMCLabel" text="name here"/>
-    <Button fx:id="ShowInfoButton" onAction="#goShowInfo" text="info"/>
-    <Button fx:id="EditInfoButton" onAction="#goEditInfo" text="edit info"/>
+    <Label fx:id="EMCLabel" layoutY="0" text="name here"/>
+    <Button fx:id="ShowInfoButton" layoutY="35" onAction="#goShowInfo" text="info"/>
+    <Button fx:id="EditInfoButton" layoutY="70" onAction="#goEditInfo" text="edit info"/>
     <Button fx:id="CancelEventButton" text="cancel"/>
 </children>
 

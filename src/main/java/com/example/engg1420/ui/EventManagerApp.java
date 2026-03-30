@@ -10,7 +10,6 @@ import java.io.IOException;
 
 public class EventManagerApp extends Application {
     private int opt;
-    public static EventManagerApp e = new EventManagerApp();
     public EventManagerController EMController = new EventManagerController();
     public EventManagerContainerController EMContainerController = new EventManagerContainerController();
     public static Stage s = new Stage();
@@ -26,6 +25,7 @@ public class EventManagerApp extends Application {
     public Stage sEM = new Stage();
     public Parent root1;
     public static Parent root2;
+    public static Scene scene2;
 
 
 
@@ -64,7 +64,7 @@ public class EventManagerApp extends Application {
 
     }
 
-    public void addToVBox(int option) throws Exception{
+    public void addToVBox(int option, FXMLLoader lc) throws Exception{
         //create an addcount variable and add to bound of count variable
 
         //case 1: initial run
@@ -76,40 +76,44 @@ public class EventManagerApp extends Application {
                 EMLoader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
                 root1 = EMLoader.load();
                 EMController = EMLoader.getController();
-                EMController.EMCLabel.setLayoutY(50*i);
+                EMController.EMCLabel.setLayoutY(50);
                 EMController.ShowInfoButton.setLayoutX(150);
-                EMController.ShowInfoButton.setLayoutY(50*i);
+                EMController.ShowInfoButton.setLayoutY(50);
                 EMController.EditInfoButton.setLayoutX(150);
-                EMController.EditInfoButton.setLayoutY((50*i)+35);
+                EMController.EditInfoButton.setLayoutY(50+35);
                 EMController.CancelEventButton.setLayoutX(150);
-                EMController.CancelEventButton.setLayoutY((50*i)+70);
+                EMController.CancelEventButton.setLayoutY(50+70);
                 EMContainerController.getVBoxContainer().getChildren().add(root1);
 
 
             }
-            s.setScene(new Scene(root2));
+            s.setScene(scene2);
             s.show();
         }else if(option == 1){
+
             EMContainerController = EMContainerLoader.getController();
 
             count = count+1;
             EMLoader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
+            //FXMLLoader CCLoader = EMContainerLoader;
+            //Parent root3 = CCLoader.load();
 
 
             root1 = EMLoader.load();
             EMController = EMLoader.getController();
 
-            EMController.EMCLabel.setLayoutY(50*count);
+            EMController.EMCLabel.setLayoutY(50);
             EMController.ShowInfoButton.setLayoutX(150);
-            EMController.ShowInfoButton.setLayoutY(50*count);
+            EMController.ShowInfoButton.setLayoutY(50);
             EMController.EditInfoButton.setLayoutX(150);
-            EMController.EditInfoButton.setLayoutY((50*count)+35);
+            EMController.EditInfoButton.setLayoutY(50+35);
             EMController.CancelEventButton.setLayoutX(150);
-            EMController.CancelEventButton.setLayoutY((50*count)+70);
-
+            EMController.CancelEventButton.setLayoutY(50+70);
             EMContainerController.getVBoxContainer().getChildren().add(root1);
+            //EMContainerLoader.
+            scene2.setRoot(root2);
+            s.setScene(scene2);
             s.show();
-
         }
         //case 2: general run
         /**/
@@ -133,7 +137,7 @@ public class EventManagerApp extends Application {
     public void initializeStuff() throws Exception{
         EMContainerLoader = new FXMLLoader(getClass().getResource("/EventManagerContainer.fxml"));
         root2 = EMContainerLoader.load();
-        //EMContainerController.setLoader8(EMContainerLoader);
+        scene2 = new Scene(root2);
     }
     public static void main(String[] args) {launch();}
 }

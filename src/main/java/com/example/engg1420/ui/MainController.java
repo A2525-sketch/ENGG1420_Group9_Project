@@ -41,7 +41,7 @@ public class MainController {
 
         Ev.setOpt(0);
         Ev.initializeStuff();
-        Ev.addToVBox(0);
+        Ev.addToVBox(0, new FXMLLoader());
         //Ev.start(new Stage());
 
     }

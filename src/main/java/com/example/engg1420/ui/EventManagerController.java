@@ -115,15 +115,6 @@ public class EventManagerController {
 
     }
 
-    public void goAddEvent()throws Exception{
-        //do operation for adding a EMControllerBlock into VBox
-        EM.addToVBox(1);
-        //set the loader as the one used in EventManagerApp
-        //EMcontainerloader
-        //EIC = EM.EMLoader.getController();
-
-        //show() EditInfo.fxml
-    }
 
 
 

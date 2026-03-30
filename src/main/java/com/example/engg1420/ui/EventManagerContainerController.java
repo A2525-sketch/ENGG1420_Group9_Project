@@ -3,6 +3,7 @@ package com.example.engg1420.ui;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class EventManagerContainerController {
     public static EventManagerApp EM = new EventManagerApp();
@@ -14,11 +15,13 @@ public class EventManagerContainerController {
     @FXML
     public VBox VBoxContainer;
 
+
+
     @FXML
     public void goAddEvent()throws Exception{
         loader8 = EM.getEMContainerLoader();
         EM.EMContainerController = loader8.getController();
-        EM.addToVBox(1);
+        EM.addToVBox(1, loader8);
 
 
 
@@ -38,4 +41,6 @@ public class EventManagerContainerController {
     public FXMLLoader getLoader8(){
         return loader8;
     }
+
+    //public Stage getCurrentStage(){}
 }
