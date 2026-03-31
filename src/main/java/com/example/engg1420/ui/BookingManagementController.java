@@ -60,6 +60,7 @@ public class BookingManagementController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     //buttons
@@ -109,22 +110,38 @@ public class BookingManagementController {
             return;
         }
 
+
         //  Parse the selected string back into a Booking object
         // Expected format: "B1002 | U002 | E101 | CONFIRMED"
         String[] parts = selected.split(" \\| ");
-        if (parts.length < 4) {
+        if (parts.length < 3) {
             System.out.println("Selected booking has invalid format: " + selected);
             return;
         }
+// Check for duplicate eventId for this user
+        try {
+            CSVReaderComplexBooking reader = new CSVReaderComplexBooking();
+            List<Booking> existingBookings = reader.readfile(loggedInUser.getId());
 
+            for (Booking b : existingBookings) {
+                if (b.getEventId().equals(parts[2].trim())) {
+                    System.out.println("You already booked this event!");
+                    return; // STOP — don't save duplicate
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
         // Create booking object
+
         Booking booking = new Booking(
                 parts[0].trim(), // bookingId
                 loggedInUser.getId(), // userId
                 parts[2].trim(), // eventId
-                parts[3].trim(), // createdAt
-                BookingStatus.CONFIRMED   // force a valid status for testing
+                BookingStatus.valueOf(parts[3].trim())
         );
+
 
         // Save booking to user's CSV file using your existing saver
         try {
@@ -159,6 +176,70 @@ public class BookingManagementController {
 
     @FXML
     private void handleCancel() {
+        String selected = mybookinglist.getSelectionModel().getSelectedItem();
+
+        if (selected == null) {
+            System.out.println("No booking selected!");
+            return;
+        }
+
+        if (loggedInUser == null) {
+            System.out.println("No user logged in!");
+            return;
+        }
+
+        String userId = loggedInUser.getId();
+        String filename = "data/bookings_user_" + userId + ".csv";
+
+        List<String> updatedBookings = new java.util.ArrayList<>();
+
+        // Read all lines EXCEPT the selected one
+        try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader(filename))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (!line.trim().equals(selected.trim())) {
+                    updatedBookings.add(line);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+
+        // Rewrite file without the removed booking
+        try (java.io.FileWriter writer = new java.io.FileWriter(filename, false)) {
+            for (String line : updatedBookings) {
+                writer.write(line + "\n");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Update ListView
+        mybookinglist.setItems(FXCollections.observableArrayList(updatedBookings));
+
+        System.out.println("Booking removed: " + selected);
+    }
+    @FXML
+    private void handleRefresh() {
+        // Reload the user's bookings into mybookinglist safely
+        try {
+            CSVReaderComplexBooking reader = new CSVReaderComplexBooking();
+            List<Booking> bookings = reader.readfile(loggedInUser.getId());
+
+            // Clear previous entries to avoid duplicates
+            myBkObservableList.clear();
+
+            for (Booking b : bookings) {
+                myBkObservableList.add(
+                        b.getBookingId() + " | " + b.getUserId() + " | " + b.getEventId() + " | " + b.getStatus()
+                );
+            }
+
+            System.out.println("Reloaded " + bookings.size() + " bookings for user: " + loggedInUser.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 

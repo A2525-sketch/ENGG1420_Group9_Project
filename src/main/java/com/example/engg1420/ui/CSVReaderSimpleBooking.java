@@ -4,6 +4,7 @@ import com.example.engg1420.model.Booking;
 import com.example.engg1420.model.BookingStatus;
 import com.opencsv.CSVReader;
 import java.io.FileReader;
+import java.io.ObjectInputFilter;
 import java.util.*;
 
 public class CSVReaderSimpleBooking {
@@ -26,8 +27,7 @@ public class CSVReaderSimpleBooking {
                         row[0], // bookingId
                         row[1], // userId
                         row[2], // eventId
-                        row[3], // createdAt
-                        status  // bookingStatus
+                        status// status
                 ));
             }
         }

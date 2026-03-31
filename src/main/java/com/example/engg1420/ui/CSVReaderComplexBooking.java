@@ -7,37 +7,47 @@ import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class CSVReaderComplexBooking {
 
-    public List<Booking> readfile(String id) throws Exception {
+    public List<Booking> readfile(String userId) throws Exception {
         List<Booking> bookings = new ArrayList<>();
-        String currentUserId = BookingManagementController.Session.currentUserId;
+        String currentUserId = userId; // Use the passed user ID
         String filePath = "data/bookings_user_" + currentUserId + ".csv";
 
-        try (CSVReader reader = new CSVReader(
-                new FileReader(filePath))) {
-
+        try (CSVReader reader = new CSVReader(new FileReader(filePath))) {
             List<String[]> rows = reader.readAll();
 
-            // skip header
-            IntStream.range(1, rows.size()).mapToObj(rows::get).forEachOrdered(row -> {
-                BookingStatus status = BookingStatus.valueOf(
-                        row[4].trim().toUpperCase()
-                );
-                bookings.add(new Booking(
-                        row[0], // bookingId
-                        row[1], // userId
-                        row[2], // eventId
-                        row[3], // createdAt
-                        status  // bookingStatus
-                ));
-            });
+            // Skip header if exists
+            for (int i = 0; i < rows.size(); i++) {
+                String[] row = rows.get(i);
+
+                // Skip invalid or empty rows
+                if (row.length < 4) continue;
+
+                String bookingId = row[0].trim();
+                String userID = row[1].trim();
+                String eventID = row[2].trim();
+                String statusStr = row[3].trim();
+
+                // Safely convert string to BookingStatus, default to WAITLISTED
+                BookingStatus status;
+                if (statusStr.isEmpty() || statusStr.equalsIgnoreCase("null")) {
+                    status = BookingStatus.WAITLISTED;
+                } else {
+                    try {
+                        status = BookingStatus.valueOf(statusStr.toUpperCase());
+                    } catch (IllegalArgumentException e) {
+                        // fallback if the CSV has bad text
+                        status = BookingStatus.WAITLISTED;
+                    }
+                }
+
+                bookings.add(new Booking(bookingId, userID, eventID, status));
+            }
         }
-        System.out.println("Reading file: " + filePath);
+
+        System.out.println("Read " + bookings.size() + " bookings from: " + filePath);
         return bookings;
     }
-
-
 }
