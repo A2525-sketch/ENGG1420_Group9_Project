@@ -18,7 +18,7 @@ public class WaitlistManagementApp extends Application {
         Scene scene = new Scene(loader.load());
 
         stage.setScene(scene);
-        stage.setTitle("Booking System Phase One");
+        stage.setTitle("Booking System Phase Two");
         stage.show();
     }
     public static void main(String[] args) {
