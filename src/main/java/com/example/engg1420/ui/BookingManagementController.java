@@ -12,7 +12,7 @@ import javafx.scene.control.TextInputDialog;
 import java.util.List;
 
 public class BookingManagementController {
-
+    private User loggedInUser;
     @FXML
     private ListView<String> bookinglist;
     @FXML
@@ -27,7 +27,7 @@ public class BookingManagementController {
 
     @FXML
     public void initialize() {
-        // Initialize bookings list (you already have this)
+        // Initialize bookings list
         bkObservableList = FXCollections.observableArrayList();
         bookinglist.setItems(bkObservableList);
 
@@ -47,11 +47,12 @@ public class BookingManagementController {
         // **Load users here**
         try {
             CSVReaderSimpleUser reader = new CSVReaderSimpleUser();
-            users = reader.readfile(); // <-- assign to field, not local variable
+            users = reader.readfile();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     //buttons
     //require login first
     boolean login = false;
@@ -71,6 +72,7 @@ public class BookingManagementController {
         for (User u : users) {
             if (u.getId().equals(enteredId)) {
                 login = true;
+                loggedInUser = u;
                 System.out.println("Logged in as: " + u.getName());
                 loginstatus.setText("Logged in as: " + u.getName());
                 break;
@@ -82,53 +84,49 @@ public class BookingManagementController {
         }
 
     }
+
     @FXML
     private void handleBook() {
-        System.out.println("Book button clicked!"); // DEBUG
-        String selected = mybookinglist.getSelectionModel().getSelectedItem();
-        if (selected == null) return;
+        if (loggedInUser == null) {
+            System.out.println("You must log in first!");
+            return;
+        }
 
-        String[] parts = selected.split("\\|");
-        String userId = parts[0].trim();
+        // Get the selected string from the list
+        String selected = bookinglist.getSelectionModel().getSelectedItem();
+        if (selected == null || selected.isEmpty()) {
+            System.out.println("No booking selected!");
+            return;
+        }
 
-        // Create Booking object
-        Booking booking = new Booking(
-                "B" + System.currentTimeMillis(),
-                userId,
-                "E101", // later: from event selection
-                java.time.LocalDateTime.now().toString(),
-                com.example.engg1420.model.BookingStatus.CONFIRMED
-        );
+        // Save the exact string to the user's CSV
+        String filename = "data/bookings_user_" + loggedInUser.getId() + ".csv";
+        try (java.io.FileWriter writer = new java.io.FileWriter(filename, true)) {
+            writer.write(selected + "\n");
+            System.out.println("Saved booking string for user: " + loggedInUser.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        // Save to user-specific CSV
-        saveBookingForUser writer = new saveBookingForUser();
-        writer.saveBookingForUser(booking);
-
-        System.out.println("Saved booking for user: " + userId);
-        //load user bookings
-        String filename = "bookings_user_" + userId + ".csv";
-
+        // Reload the user's bookings list
         bookingList.getItems().clear();
-
-        try (java.io.BufferedReader reader =
-                     new java.io.BufferedReader(new java.io.FileReader(filename))) {
-
+        try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader(filename))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 bookingList.getItems().add(line);
             }
-
         } catch (Exception e) {
             System.out.println("No bookings yet for this user.");
         }
+        //Load user booking list
 
     }
+
     @FXML
     private void handleCancel() {
-        if(login == true){}
     }
-
 }
+
 
 
 
