@@ -5,6 +5,7 @@ import com.example.engg1420.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
 
@@ -16,7 +17,8 @@ public class BookingManagementController {
     private ListView<String> bookinglist; // must match fx:id in FXML
     private List<User> users;
     private ObservableList<String> bkObservableList;
-
+    @FXML
+    private Label loginstatus;
 
     @FXML
     public void initialize() {
@@ -65,12 +67,13 @@ public class BookingManagementController {
             if (u.getId().equals(enteredId)) {
                 login = true;
                 System.out.println("Logged in as: " + u.getName());
+                loginstatus.setText("Logged in as: " + u.getName());
                 break;
             }
         }
 
         if (!login) {
-            System.out.println("Login failed: no user with ID " + enteredId);
+            loginstatus.setText("Login failed: no user with ID " + enteredId);
         }
     }
     @FXML

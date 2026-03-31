@@ -86,5 +86,16 @@ public class UserManagementController{
 
         // Add to ObservableList so it shows in ListView
         addUser(newUser);
+        // Save to CSV
+        try {
+            CSVWriterSimpleUser writer = new CSVWriterSimpleUser();
+            writer.addUser(newUser);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+
     }
 }

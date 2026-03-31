@@ -12,5 +12,6 @@
       <Button fx:id="login" layoutX="537.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleLogin" style="-fx-background-color: #FFCCCB;" text="Login" />
       <Button fx:id="book" layoutX="486.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleBook" style="-fx-background-color: #FFCCCB;" text="Book" />
       <Button fx:id="Cancel" layoutX="427.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #FFCCCB;" text="Cancel" />
+      <Label fx:id="loginstatus" layoutX="31.0" layoutY="372.0" style="-fx-text-fill: #FFCCCB;" text="NOT LOGGED IN" />
     </children>
 </AnchorPane>
