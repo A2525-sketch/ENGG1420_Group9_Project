@@ -1,6 +1,7 @@
 package com.example.engg1420.ui;
 
 import com.example.engg1420.model.Booking;
+import com.example.engg1420.model.BookingStatus;
 import com.example.engg1420.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +14,11 @@ import java.util.List;
 
 public class BookingManagementController {
     private User loggedInUser;
+    private BookingStatus statusEnum;
+
+    public class Session {
+        public static String currentUserId;
+    }
     @FXML
     private ListView<String> bookinglist;
     @FXML
@@ -21,6 +27,7 @@ public class BookingManagementController {
     @FXML
     private ListView<String> bookingList;
     private ObservableList<String> bkObservableList;
+    private ObservableList<String> myBkObservableList;
 
     @FXML
     private Label loginstatus;
@@ -28,6 +35,8 @@ public class BookingManagementController {
     @FXML
     public void initialize() {
         // Initialize bookings list
+        myBkObservableList = FXCollections.observableArrayList();
+        mybookinglist.setItems(myBkObservableList);
         bkObservableList = FXCollections.observableArrayList();
         bookinglist.setItems(bkObservableList);
 
@@ -75,6 +84,7 @@ public class BookingManagementController {
                 loggedInUser = u;
                 System.out.println("Logged in as: " + u.getName());
                 loginstatus.setText("Logged in as: " + u.getName());
+                Session.currentUserId = loggedInUser.getId();
                 break;
             }
         }
@@ -92,35 +102,60 @@ public class BookingManagementController {
             return;
         }
 
-        // Get the selected string from the list
+        // Get the selected booking string
         String selected = bookinglist.getSelectionModel().getSelectedItem();
         if (selected == null || selected.isEmpty()) {
             System.out.println("No booking selected!");
             return;
         }
 
-        // Save the exact string to the user's CSV
-        String filename = "data/bookings_user_" + loggedInUser.getId() + ".csv";
-        try (java.io.FileWriter writer = new java.io.FileWriter(filename, true)) {
-            writer.write(selected + "\n");
-            System.out.println("Saved booking string for user: " + loggedInUser.getId());
+        //  Parse the selected string back into a Booking object
+        // Expected format: "B1002 | U002 | E101 | CONFIRMED"
+        String[] parts = selected.split(" \\| ");
+        if (parts.length < 4) {
+            System.out.println("Selected booking has invalid format: " + selected);
+            return;
+        }
+
+        // Create booking object
+        Booking booking = new Booking(
+                parts[0].trim(), // bookingId
+                loggedInUser.getId(), // userId
+                parts[2].trim(), // eventId
+                parts[3].trim(), // createdAt
+                BookingStatus.CONFIRMED   // force a valid status for testing
+        );
+
+        // Save booking to user's CSV file using your existing saver
+        try {
+            saveBookingForUser saver = new saveBookingForUser();
+            saver.saveBookingForUser(booking);
+            System.out.println("Saved booking for user: " + loggedInUser.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+
+        // Reload the user's bookings into mybookinglist safely
+        try {
+            CSVReaderComplexBooking reader = new CSVReaderComplexBooking();
+            List<Booking> bookings = reader.readfile(loggedInUser.getId());
+
+            // Clear previous entries to avoid duplicates
+            myBkObservableList.clear();
+
+            for (Booking b : bookings) {
+                myBkObservableList.add(
+                        b.getBookingId() + " | " + b.getUserId() + " | " + b.getEventId() + " | " + b.getStatus()
+                );
+            }
+
+            System.out.println("Reloaded " + bookings.size() + " bookings for user: " + loggedInUser.getId());
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // Reload the user's bookings list
-        bookingList.getItems().clear();
-        try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader(filename))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                bookingList.getItems().add(line);
-            }
-        } catch (Exception e) {
-            System.out.println("No bookings yet for this user.");
-        }
-        //Load user booking list
-
     }
+
 
     @FXML
     private void handleCancel() {
