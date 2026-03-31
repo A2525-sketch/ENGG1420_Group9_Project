@@ -8,10 +8,13 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #353935;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.BookingManagementController">
     <children>
         <Label layoutX="261.0" layoutY="14.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="Bookings" />
-      <ListView fx:id="bookinglist" layoutX="14.0" layoutY="71.0" prefHeight="288.0" prefWidth="569.0" style="-fx-background-color: #FFCCCB;" />
+      <ListView fx:id="bookinglist" layoutX="14.0" layoutY="71.0" prefHeight="281.0" prefWidth="277.0" style="-fx-background-color: #FFCCCB;" />
       <Button fx:id="login" layoutX="537.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleLogin" style="-fx-background-color: #FFCCCB;" text="Login" />
       <Button fx:id="book" layoutX="486.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleBook" style="-fx-background-color: #FFCCCB;" text="Book" />
       <Button fx:id="Cancel" layoutX="427.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #FFCCCB;" text="Cancel" />
       <Label fx:id="loginstatus" layoutX="31.0" layoutY="372.0" style="-fx-text-fill: #FFCCCB;" text="NOT LOGGED IN" />
+      <ListView fx:id="mybookinglist" layoutX="306.0" layoutY="71.0" prefHeight="281.0" prefWidth="277.0" style="-fx-background-color: #FFCCCB;" />
+      <Label layoutX="99.0" layoutY="41.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="All Bookings" />
+      <Label layoutX="389.0" layoutY="41.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="My Bookings" />
     </children>
 </AnchorPane>
