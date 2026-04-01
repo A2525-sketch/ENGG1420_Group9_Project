@@ -2,25 +2,33 @@ package com.example.engg1420.ui;
 
 import com.example.engg1420.model.User;
 import com.opencsv.CSVReader;
+
 import java.io.*;
 import java.util.*;
 
 public class CSVReaderSimpleUser {
 
+    private static final String FILE_PATH = "data/users.csv";
+
     public List<User> readfile() throws Exception {
         List<User> users = new ArrayList<>();
 
-        // Load users.csv from resources folder using classpath
-        InputStream input = getClass().getResourceAsStream("/Final Project Files/users.csv");
-        if (input == null) {
-            throw new FileNotFoundException("users.csv not found in resources!");
+        File file = new File(FILE_PATH);
+
+        // Ensure folder and file exist
+        if (!file.exists()) {
+            file.getParentFile().mkdirs(); // create data/ folder
+            file.createNewFile();          // create empty CSV
+            try (FileWriter fw = new FileWriter(file)) {
+                fw.write("userId,name,email,userType\n"); // header
+            }
         }
 
-        // Use CSVReader with InputStreamReader
-        try (CSVReader reader = new CSVReader(new InputStreamReader(input))) {
+        // Read CSV from file
+        try (CSVReader reader = new CSVReader(new FileReader(file))) {
             List<String[]> rows = reader.readAll();
 
-            // Skip header (i = 1)
+            // Skip header
             for (int i = 1; i < rows.size(); i++) {
                 String[] row = rows.get(i);
                 users.add(new User(
