@@ -10,7 +10,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/main.fxml"));//references the main fxml
             Scene scene = new Scene(loader.load());
-
+            CSVInitializer.initializeUsers();
             stage.setScene(scene);
             stage.setTitle("Booking System Phase Two");
             stage.show();
