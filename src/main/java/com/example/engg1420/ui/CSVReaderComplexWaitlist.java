@@ -8,15 +8,15 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVReaderComplexBooking {
+public class CSVReaderComplexWaitlist {
 
     public List<Booking> readfile(String userId) throws Exception {
         List<Booking> bookings = new ArrayList<>();
-        String filePath = "data/bookings_user_" + userId + ".csv";
+        String filePath = "data/Waitlist_user_" + userId + ".csv";
 
         File file = new File(filePath);
 
-        // Create file if it doesn't exist
+        // Prevent crash if file doesn't exist
         if (!file.exists()) {
             file.getParentFile().mkdirs();
             file.createNewFile();
@@ -26,7 +26,7 @@ public class CSVReaderComplexBooking {
         try (CSVReader reader = new CSVReader(new FileReader(file))) {
             List<String[]> rows = reader.readAll();
 
-            // Skip header
+            //  Skip header
             for (int i = 1; i < rows.size(); i++) {
                 String[] row = rows.get(i);
 
@@ -37,7 +37,7 @@ public class CSVReaderComplexBooking {
                 String eventID = row[2].trim();
                 String statusStr = row[3].trim();
 
-                // Safe enum parsing
+                //  Clean enum parsing
                 BookingStatus status;
                 try {
                     status = BookingStatus.valueOf(statusStr.toUpperCase());
@@ -49,7 +49,7 @@ public class CSVReaderComplexBooking {
             }
         }
 
-        System.out.println("Read " + bookings.size() + " bookings from: " + filePath);
+        System.out.println("Read " + bookings.size() + " waitlist entries from: " + filePath);
         return bookings;
     }
 }

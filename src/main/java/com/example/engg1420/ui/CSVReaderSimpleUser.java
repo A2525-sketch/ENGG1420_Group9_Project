@@ -2,23 +2,40 @@ package com.example.engg1420.ui;
 
 import com.example.engg1420.model.User;
 import com.opencsv.CSVReader;
-import java.io.FileReader;
+
+import java.io.*;
 import java.util.*;
 
 public class CSVReaderSimpleUser {
+
+    private static final String FILE_PATH = "data/users.csv";
+
     public List<User> readfile() throws Exception {
         List<User> users = new ArrayList<>();
-// create an array called users to hold all users
-        try (CSVReader reader = new CSVReader(new FileReader("src/main/resources/Final Project Files/users.csv"))) {
+
+        File file = new File(FILE_PATH);
+
+        // Ensure folder and file exist
+        if (!file.exists()) {
+            file.getParentFile().mkdirs(); // create data/ folder
+            file.createNewFile();          // create empty CSV
+            try (FileWriter fw = new FileWriter(file)) {
+                fw.write("userId,name,email,userType\n"); // header
+            }
+        }
+
+        // Read CSV from file
+        try (CSVReader reader = new CSVReader(new FileReader(file))) {
             List<String[]> rows = reader.readAll();
-// read entire file from source
+
+            // Skip header
             for (int i = 1; i < rows.size(); i++) {
                 String[] row = rows.get(i);
-                users.add(new User( //create new object: User with following params
-                        row[0], //userid
-                        row[1], //name
-                        row[2], //email
-                        row[3] //usertype
+                users.add(new User(
+                        row[0], // userid
+                        row[1], // name
+                        row[2], // email
+                        row[3]  // usertype
                 ));
             }
         }

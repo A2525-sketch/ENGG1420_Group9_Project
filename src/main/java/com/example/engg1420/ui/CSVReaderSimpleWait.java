@@ -9,12 +9,12 @@ import java.io.InputStreamReader;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class CSVReaderSimpleBooking {
+public class CSVReaderSimpleWait {
 
     public List<Booking> readfile() throws Exception {
         List<Booking> bookings = new ArrayList<>();
 
-        // Load from classpath
+
         InputStream input = getClass().getResourceAsStream("/Final Project Files/bookings.csv");
 
         if (input == null) {
@@ -27,22 +27,27 @@ public class CSVReaderSimpleBooking {
             for (int i = 1; i < rows.size(); i++) { // skip header
                 String[] row = rows.get(i);
 
-                // Prevent crashes on bad rows
+
                 if (row.length < 5) continue;
 
                 BookingStatus status;
+
+
                 try {
                     status = BookingStatus.valueOf(row[4].trim().toUpperCase());
                 } catch (Exception e) {
                     status = BookingStatus.WAITLISTED;
                 }
 
-                bookings.add(new Booking(
-                        row[0], // bookingId
-                        row[1], // userId
-                        row[2], // eventId
-                        status
-                ));
+
+                if (status == BookingStatus.WAITLISTED) {
+                    bookings.add(new Booking(
+                            row[0],
+                            row[1],
+                            row[2],
+                            status
+                    ));
+                }
             }
         }
 
