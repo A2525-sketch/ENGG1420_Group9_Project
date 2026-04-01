@@ -4,7 +4,7 @@ import com.example.engg1420.model.Booking;
 import com.example.engg1420.model.BookingStatus;
 import com.opencsv.CSVReader;
 
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,17 +12,24 @@ public class CSVReaderComplexBooking {
 
     public List<Booking> readfile(String userId) throws Exception {
         List<Booking> bookings = new ArrayList<>();
-        String currentUserId = userId; // Use the passed user ID
-        String filePath = "data/bookings_user_" + currentUserId + ".csv";
+        String filePath = "data/bookings_user_" + userId + ".csv";
 
-        try (CSVReader reader = new CSVReader(new FileReader(filePath))) {
+        File file = new File(filePath);
+
+        // Create file if it doesn't exist
+        if (!file.exists()) {
+            file.getParentFile().mkdirs();
+            file.createNewFile();
+            return bookings;
+        }
+
+        try (CSVReader reader = new CSVReader(new FileReader(file))) {
             List<String[]> rows = reader.readAll();
 
-            // Skip header if exists
-            for (int i = 0; i < rows.size(); i++) {
+            // Skip header
+            for (int i = 1; i < rows.size(); i++) {
                 String[] row = rows.get(i);
 
-                // Skip invalid or empty rows
                 if (row.length < 4) continue;
 
                 String bookingId = row[0].trim();
@@ -30,17 +37,12 @@ public class CSVReaderComplexBooking {
                 String eventID = row[2].trim();
                 String statusStr = row[3].trim();
 
-                // Safely convert string to BookingStatus, default to WAITLISTED
+                // Safe enum parsing
                 BookingStatus status;
-                if (statusStr.isEmpty() || statusStr.equalsIgnoreCase("null")) {
+                try {
+                    status = BookingStatus.valueOf(statusStr.toUpperCase());
+                } catch (Exception e) {
                     status = BookingStatus.WAITLISTED;
-                } else {
-                    try {
-                        status = BookingStatus.valueOf(statusStr.toUpperCase());
-                    } catch (IllegalArgumentException e) {
-                        // fallback if the CSV has bad text
-                        status = BookingStatus.WAITLISTED;
-                    }
                 }
 
                 bookings.add(new Booking(bookingId, userID, eventID, status));
