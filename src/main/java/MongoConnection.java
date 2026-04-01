@@ -7,6 +7,6 @@ public class MongoConnection {
         MongoDatabase db = client.getDatabase("school");
         return db.getCollection("students");
     }
-}
+}*/
 
- */
+

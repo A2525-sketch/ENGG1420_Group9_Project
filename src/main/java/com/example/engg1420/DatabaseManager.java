@@ -1,4 +1,4 @@
-package com.example.engg1420;
+/*package com.example.engg1420;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -17,4 +17,4 @@ public class DatabaseManager {
     public static MongoDatabase getDatabase() {
         return database;
     }
-}
+}*/
