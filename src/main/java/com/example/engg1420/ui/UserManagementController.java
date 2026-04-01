@@ -10,7 +10,7 @@ import javafx. scene. control. cell. PropertyValueFactory;
 
 public class UserManagementController {
     @FXML
-    private TableView<User> tableView;
+    private TableView<User> tableView; //Generates Table in FXML File
 
     @FXML
     private TableColumn<User, String> nameColumn;
@@ -32,33 +32,14 @@ public class UserManagementController {
 
     @FXML
     public void initialize () {
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("User ID"));
-        userTypeColumn.setCellValueFactory(new PropertyValueFactory<>("User Type"));
-        userNameColumn.setCellValueFactory(new PropertyValueFactory<>("User Name"));
-        passwordColumn.setCellValueFactory(new PropertyValueFactory<>("Password"));
-        eventsBookedColumn.setCellValueFactory(new PropertyValueFactory<>("Booked Event(s)"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name")); //Initializing Name Column
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("User ID")); //Initializing ID Column
+        userTypeColumn.setCellValueFactory(new PropertyValueFactory<>("User Type")); //Initializing User Type Column
+        userNameColumn.setCellValueFactory(new PropertyValueFactory<>("User Name")); //Initializing User Name Column
+        passwordColumn.setCellValueFactory(new PropertyValueFactory<>("Password")); //Initializing Password Column
+        eventsBookedColumn.setCellValueFactory(new PropertyValueFactory<>("Booked Event(s)")); //Initializing Booked Event(s) Column
 
-        ObservableList<User> data = FXCollections.observableArrayList(
-                new User("123", "Alice") {
-                    @Override
-                    public String getUserType() {
-                        return "Student";
-                    }
-                },
-                new User("789", "Bob") {
-                    @Override
-                    public String getUserType() {
-                        return "Guest";
-                    }
-                },
-                new User("674", "Charlie") {
-                    @Override
-                    public String getUserType() {
-                        return "Staff";
-                    }
-                }
-        );
+        ObservableList<User> data = FXCollections.observableArrayList();
         tableView. setItems(data);
         }
 }
