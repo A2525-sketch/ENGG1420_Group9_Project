@@ -1,7 +1,8 @@
-package com.example.engg1420.ui;
+package com.example.engg1420.ui.CONTROLLERS;
 
-import com.example.engg1420.model.EventType;
 import com.example.engg1420.model.User;
+import com.example.engg1420.ui.CSVREADERS.CSVReaderSimpleUser;
+import com.example.engg1420.ui.CSVWRITERS.CSVWriterSimpleUser;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.collections.FXCollections;

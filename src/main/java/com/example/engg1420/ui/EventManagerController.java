@@ -1,13 +1,9 @@
 package com.example.engg1420.ui;//under this folder
 //com.example.engg1420.ui.EventManagerController
 
-import javafx.application.Application;
-import com.example.engg1420.model.Event;
-import com.example.engg1420.model.EventType;
-import com.example.engg1420.model.Workshop;
+import com.example.engg1420.ui.APPS.EventManagerApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
