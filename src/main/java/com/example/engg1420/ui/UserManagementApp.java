@@ -1,4 +1,4 @@
-package com.example.engg1420.ui.APPS;
+package com.example.engg1420.ui;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

@@ -1,8 +1,4 @@
-package com.example.engg1420.ui.CONTROLLERS;
-import com.example.engg1420.ui.APPS.BookingManagementApp;
-import com.example.engg1420.ui.APPS.EventManagerApp;
-import com.example.engg1420.ui.APPS.UserManagementApp;
-import com.example.engg1420.ui.WaitlistManagementApp;
+package com.example.engg1420.ui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;

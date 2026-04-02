@@ -1,4 +1,4 @@
-package com.example.engg1420.ui.CONTROLLERS;
+package com.example.engg1420.ui;
 import com.example.engg1420.model.Booking;
 import com.example.engg1420.model.BookingStatus;
 import com.example.engg1420.model.User;

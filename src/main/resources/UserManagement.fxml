@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #353935;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.CONTROLLERS.UserManagementController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #353935;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.UserManagementController">
    <children>
       <Button fx:id="AddUser" layoutX="513.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleAddUser" style="-fx-background-color: #FFCCCB;" text="Add User" />
       <ListView fx:id="userlist" layoutX="14.0" layoutY="87.0" prefHeight="270.0" prefWidth="572.0" style="-fx-background-color: #FFCCCB;" />
