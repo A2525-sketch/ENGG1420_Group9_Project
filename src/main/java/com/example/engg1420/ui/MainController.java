@@ -12,7 +12,10 @@ public class MainController {
     @FXML
     private Label statusLabel;
 
-    public EventManagerApp Ev = new EventManagerApp();
+    public static EventManagerApp Ev = new EventManagerApp();
+
+    public CSVReaderSimpleEvent CEv = new CSVReaderSimpleEvent();
+
 
     @FXML
     private void goBooking() throws Exception{
@@ -43,9 +46,9 @@ public class MainController {
         statusLabel.setText("Opening Event Management");
 
 
-        Ev.initializeStuff();
+        Ev.setRowCount(CEv.getRowSize());
         Ev.start(new Stage());
-        //Ev.start(new Stage());
+
 
     }
 

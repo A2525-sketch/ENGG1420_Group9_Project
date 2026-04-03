@@ -2,9 +2,11 @@ package com.example.engg1420.ui;
 import com.example.engg1420.model.EventType;
 import com.opencsv.CSVReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 public class CSVReaderSimpleEvent {
+    //EventManagerApp EMA = new EventManagerApp
     public List<EventType> readfile() throws Exception {
         List<EventType> Events = new ArrayList<>();
 
@@ -17,7 +19,7 @@ public class CSVReaderSimpleEvent {
                         row[0], // event id
                         row[1], // title
                         row[2], // date time
-                        row[3], // locaiton
+                        row[3], // location
                         Integer.parseInt(row[4]), // capacity
                         row[5],// status
                         row[6] // event type
@@ -26,6 +28,20 @@ public class CSVReaderSimpleEvent {
             }
         }
 
+
         return Events;
     }
+
+    public int getRowSize() throws Exception {
+
+        CSVReader reader = new CSVReader(new FileReader("src/main/resources/Final Project Files/events.csv"));
+        List<String[]> rows = reader.readAll();
+        return rows.size();
+
+
+    }
+
+    /*public String getRows(){
+
+    }*/
 }
