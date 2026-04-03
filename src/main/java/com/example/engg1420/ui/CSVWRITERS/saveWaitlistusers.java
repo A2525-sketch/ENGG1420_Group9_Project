@@ -1,20 +1,21 @@
-package com.example.engg1420.ui;
+
+package com.example.engg1420.ui.CSVWRITERS;
 import com.example.engg1420.model.Booking;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class saveBookingForUser {
+public class saveWaitlistusers {
 
     private static final String BASE_DIR = "data/";
 
-    public void saveBookingForUser(Booking booking) {
+    public void saveWaitlistusers(Booking booking) {
 
         try {
             File dir = new File(BASE_DIR);
             if (!dir.exists()) dir.mkdirs();
 
-            String filename = BASE_DIR + "bookings_user_" + booking.getUserId() + ".csv";
+            String filename = BASE_DIR + "Waitlist_user_" + booking.getUserId() + ".csv";
             System.out.println("Writing file to: " + new File(filename).getAbsolutePath());
 
             try (FileWriter writer = new FileWriter(filename, true)) {
