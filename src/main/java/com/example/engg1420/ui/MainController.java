@@ -6,6 +6,9 @@ import javafx.stage.Stage;
 public class MainController {
     @FXML
     private Label statusLabel;
+
+    public EventManagerApp Ev = new EventManagerApp();
+
     @FXML
     private void goBooking() throws Exception{
 //change statuslabel for debugging purposes and/or to let user know what is supposed to happen
@@ -35,12 +38,9 @@ public class MainController {
         statusLabel.setText("Opening Event Management");
 
 
-        EventManagerApp Ev = new EventManagerApp();
-
+        Ev.initializeStuff();
         Ev.start(new Stage());
-
-
-
+        //Ev.start(new Stage());
 
     }
 
