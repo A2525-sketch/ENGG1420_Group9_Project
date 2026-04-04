@@ -1,13 +1,9 @@
 package com.example.engg1420.ui;
-import com.example.engg1420.model.Student;
-import com.example.engg1420.model.User;
+import com.example.engg1420.ui.CSVREADERS.CSVReaderSimpleEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TextField;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import com.example.engg1420.ui.EventManagerApp;
+
 public class MainController {
     @FXML
     private Label statusLabel;
