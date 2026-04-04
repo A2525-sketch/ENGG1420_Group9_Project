@@ -1,6 +1,6 @@
 package com.example.engg1420.model;
 
-import com.example.engg1420.ui.CSVReaderSimpleBooking;
+import com.example.engg1420.ui.CSVREADERS.CSVReaderSimpleBooking;
 import java.util.List;
 //test to ensure CSV reader works for respective object
 public class CSVTestBooking {

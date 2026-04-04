@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.WaitlistManagementController">
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #353935;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.WaitlistManagementController">
     <children>
-        <Label layoutX="230.0" layoutY="20.0" style="-fx-font-size: 18; -fx-font-weight: bold;" text="Waitlist Management" />
-        <Label layoutX="60.0" layoutY="80.0" text="Event Name:" />
-        <TextField fx:id="eventNameField" layoutX="154.0" layoutY="75.0" prefHeight="26.0" prefWidth="219.0" />
-        <Button layoutX="400.0" layoutY="75.0" mnemonicParsing="false" onAction="#goViewWaitlist" text="View Waitlist" />
-        <Button layoutX="400.0" layoutY="115.0" mnemonicParsing="false" onAction="#goRemoveWaitlist" text="Remove Waitlisted User" />
-        <Button layoutX="400.0" layoutY="155.0" mnemonicParsing="false" onAction="#goPromoteUser" text="Promote Next User" />
-        <Label layoutX="60.0" layoutY="180.0" text="Output:" />
-        <TextArea fx:id="outputArea" layoutX="60.0" layoutY="200.0" prefHeight="160.0" prefWidth="480.0" wrapText="true" />
+        <Label layoutX="223.0" layoutY="14.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="WaitList Overview" />
+      <Button fx:id="login" layoutX="537.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleLogin" style="-fx-background-color: #FFCCCB;" text="Login" />
+      <Button fx:id="Join" layoutX="489.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleJoin" style="-fx-background-color: #FFCCCB;" text="Join" />
+      <Button fx:id="Cancel" layoutX="336.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #FFCCCB;" text="Cancel" />
+      <Label fx:id="loginstatus" layoutX="31.0" layoutY="372.0" style="-fx-text-fill: #FFCCCB;" text="NOT LOGGED IN" />
+      <ListView fx:id="waitlistlist" layoutX="230.0" layoutY="71.0" prefHeight="281.0" prefWidth="166.0" style="-fx-background-color: #FFCCCB;" />
+      <Label layoutX="263.0" layoutY="41.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="Waitlists" />
+      <ListView fx:id="queuelist" layoutX="31.0" layoutY="71.0" prefHeight="281.0" prefWidth="188.0" style="-fx-background-color: #FFCCCB;" />
+      <Label layoutX="65.0" layoutY="41.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="Saved Waitlist" />
+      <Label layoutX="454.0" layoutY="41.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="Position" />
+      <ListView layoutX="406.0" layoutY="71.0" prefHeight="281.0" prefWidth="166.0" style="-fx-background-color: #FFCCCB;" />
+      <Button fx:id="Cancel1" layoutX="396.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #FFCCCB;" text="View Position" />
+
     </children>
 </AnchorPane>
