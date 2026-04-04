@@ -116,79 +116,7 @@ By Pressing the Book Button you are able to create or edit a per user booking in
 <img width="612" height="278" alt="image" src="https://github.com/user-attachments/assets/1cbc3b2e-f9ea-416f-a02d-d03ed505a02d" />
 
 The Refresh button is working to reload in case of a bug or improper loading on start up and the Cancel button will remove the selected booking from the list and CSV file.
-### Waitlist
 
-Just like Booking Waitlist loads all needed csv info and requires login for anything
-
-<img width="598" height="423" alt="image" src="https://github.com/user-attachments/assets/427b99d0-9ae1-4ae9-bf9a-47ab7c1bd138" />
-
-Handles saved waitlist with similar logic as well
-
-<img width="597" height="424" alt="image" src="https://github.com/user-attachments/assets/cec2cdd1-5bca-4c65-ad46-04cbddda6c23" />
-
-Sadly Position was unable to be implemented in time but the Waitlist auto promotion logic has been create in a seperated class just not wired to the controller.
-
-The basic idea was however to press the View Position button on a highlighted Saved Waitlist to view who was in front of you in the waitlist so you could know how many people where in the waitlist
-
-### Events
-
-After pressing on events this app will open
-
-<img width="604" height="633" alt="image" src="https://github.com/user-attachments/assets/063bac24-2eaf-4db1-9e9f-fa35e11cea10" />
-
-By pressing Add Event you can add an Event Object to the list
-
-By pressing Cancel its meant to delete the object but doesnt seem to work
-
-By Pressing Edit Event info it opens a new app to change that apps Info 
-
-<img width="598" height="421" alt="image" src="https://github.com/user-attachments/assets/5f5a67c7-9626-4d94-a19e-a7bf09e62694" />
-
-Press Apply to Apply these changes 
-
-Then Press info to see these changes made
-
-<img width="600" height="423" alt="image" src="https://github.com/user-attachments/assets/33cdb305-7e05-4d6f-b1b4-6ee716cc4880" />
-
-(it seems like capacity is not working and Event Type due to a bug)
-
-
-
-### Contributons
- John McLean - JohnMclean040-star & VampireByte-Studio
-- User, Student, Guest, Staff, EventType, Bookings, Booking manager, Workshop, Seminar, Concert Model classes
-- Booking Status Enum
-- CSV readers and writers for Waitlist, Users and Events
-- FXML files for Waitlist, Main, Booking, Users,
-- Apps for Main and help with other apps
-- Controllers for Main, Users, Booking and Waitlist
-- Debugging and Testing through project
-  
-Aiden Adams - A2525-sketch
--Event manager controller
--Event fxml file
--Event controller
--Event logic
-
-Anas Elkeden - aelkeden
--Junit Testing
-
-Hariharan Shankar - HariharanShankar310
--phase one fxml file for users
--worked on searchfeature.java class (scrapped)
-
-Ruth Lal - idk-214
--Phase one read.me file
-Waitlist FXML file for phase one demo
--Mongodb Testing (scrapped)
--Waitlist Manager class/logic
-
-Abdulrahman Hasan - ahasan-abdul
--Mongodb Testing (scrapped)
-
-## Note
-
-If any files are missing that are mentioned in the read.me that is because they havent been pushed to the master branch by the contributor.
 
 
 

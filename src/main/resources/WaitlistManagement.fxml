@@ -5,8 +5,6 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #353935;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.WaitlistManagementController">
     <children>
         <Label layoutX="223.0" layoutY="14.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="WaitList Overview" />
@@ -21,6 +19,5 @@
       <Label layoutX="454.0" layoutY="41.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="Position" />
       <ListView layoutX="406.0" layoutY="71.0" prefHeight="281.0" prefWidth="166.0" style="-fx-background-color: #FFCCCB;" />
       <Button fx:id="Cancel1" layoutX="396.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #FFCCCB;" text="View Position" />
-
     </children>
 </AnchorPane>
