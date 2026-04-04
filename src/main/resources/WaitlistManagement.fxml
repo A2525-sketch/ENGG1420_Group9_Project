@@ -3,15 +3,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.WaitlistManagementController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2b2b2b;;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.WaitlistManagementController">
     <children>
-        <Label layoutX="230.0" layoutY="20.0" style="-fx-font-size: 18; -fx-font-weight: bold;" text="Waitlist Management" />
-        <Label layoutX="60.0" layoutY="80.0" text="Event Name:" />
-        <TextField fx:id="eventNameField" layoutX="154.0" layoutY="75.0" prefHeight="26.0" prefWidth="219.0" />
-        <Button layoutX="400.0" layoutY="75.0" mnemonicParsing="false" onAction="#goViewWaitlist" text="View Waitlist" />
-        <Button layoutX="400.0" layoutY="115.0" mnemonicParsing="false" onAction="#goRemoveWaitlist" text="Remove Waitlisted User" />
-        <Button layoutX="400.0" layoutY="155.0" mnemonicParsing="false" onAction="#goPromoteUser" text="Promote Next User" />
-        <Label layoutX="60.0" layoutY="180.0" text="Output:" />
-        <TextArea fx:id="outputArea" layoutX="60.0" layoutY="200.0" prefHeight="160.0" prefWidth="480.0" wrapText="true" />
+        <Label layoutX="230.0" layoutY="20.0" style="-fx-font-size: 18; -fx-font-weight: bold;" text="Waitlist Management" textFill="WHITE" />
+        <Label layoutX="60.0" layoutY="80.0" text="Event Name:" textFill="WHITE" />
+        <TextField fx:id="eventIdField" layoutX="154.0" layoutY="75.0" prefHeight="26.0" prefWidth="219.0" style="-fx-control-inner-background: #3c3c3c; -fx-text-fill: white;" />
+        <Button layoutX="400.0" layoutY="75.0" mnemonicParsing="false" onAction="#goViewWaitlist" style="-fx-background-color: #ffb3b3; -fx-background-radius: 8;" text="View Waitlist" />
+        <Button layoutX="400.0" layoutY="115.0" mnemonicParsing="false" onAction="#goRemoveWaitlist" style="-fx-background-color: #ffb3b3; -fx-background-radius: 8;" text="Remove Waitlisted User" />
+        <Button layoutX="400.0" layoutY="155.0" mnemonicParsing="false" onAction="#goPromoteUser" style="-fx-background-color: #ffb3b3; -fx-background-radius: 8;" text="Promote Next User" />
+        <Label layoutX="60.0" layoutY="180.0" text="Output:" textFill="WHITE" />
+        <TextArea fx:id="outputArea" layoutX="60.0" layoutY="200.0" prefHeight="160.0" prefWidth="480.0" style="-fx-control-inner-background: #3c3c3c; -fx-text-fill: white;" wrapText="true" />
     </children>
 </AnchorPane>
