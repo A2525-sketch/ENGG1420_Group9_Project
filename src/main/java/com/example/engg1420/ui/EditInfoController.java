@@ -1,58 +1,62 @@
 package com.example.engg1420.ui;
 
+import com.example.engg1420.model.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+
+
 public class EditInfoController {
+    public EventManagerApp EMA = new EventManagerApp();
+
+
+
 
 
     @FXML
-    public TextField eventid;
+    public TextField eventidField;
+    @FXML
+    public TextField titleField;
+    @FXML
+    public TextField dateField;
+    @FXML
+    public TextField locationField;
+    @FXML
+    public TextField capacityField;
+    @FXML
+    public TextField eventtypeField;
+
+    public Stage EditInfoStage;
+
+    public FXMLLoader EditInfoLoader;
 
 
-    public String inputText;
-
-    public static Stage stage1 = new Stage();
-
-    public EventManagerController EMC = new EventManagerController();
-
-    public FXMLLoader loader;
 
     @FXML
     public void goApply()throws Exception{
-        EditInfoController e = loader.getController();
-        inputText = eventid.getText();
 
-        System.out.println("some info: " + e.eventid.getText());
-        EMC.updateStr(inputText);
+        EditInfoController e = EditInfoLoader.getController();
+
+        EventType ET= new EventType(eventidField.getText(), titleField.getText(), dateField.getText(), locationField.getText(),EMA.convertCharToInt(capacityField.getCharacters()), eventtypeField.getText());
+        CSVWriterSimpleEvent writer = new CSVWriterSimpleEvent();
+        writer.modifyEvent(ET.toString(), EMA.Index, EMA.rowCount);
+
     }
+
     @FXML
     public void goClose()throws Exception{
-        stage1.close();
+        EditInfoStage.close();
     }
-
-
-
-    public String getStr(){
-        return inputText;
-    }
-
-    public EditInfoController getEIC(){
-        return loader.getController();
-    }
-
 
     public void setStage(Stage stage){
-        stage1 = stage;
+        EditInfoStage = stage;
     }
     public void setLoader(FXMLLoader l){
-        loader = l;
+        EditInfoLoader = l;
     }
-
 
 
 

@@ -5,68 +5,94 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.math.*;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class EventManagerApp extends Application {
 
-    public static EventManagerController EMController = new EventManagerController();
-    public static EventManagerContainerController EMContainerController = new EventManagerContainerController();
-    public static ArrayList<EventManagerController> EMContainerList = new ArrayList<>(3);
-    public static ArrayList<FXMLLoader> EMContainerLoaderList = new ArrayList<>(3);
-    public static Stage s = new Stage();
+    public static ArrayList<EventManagerController> EventManagerControllerList = new ArrayList<>(3);
+    public static EventManagerContainerController EventManagerContainerControllerObj = new EventManagerContainerController();
+    public CSVWriterSimpleEvent writer= new CSVWriterSimpleEvent();
 
-    public static int count = 3;//a for loop will be bounded by this number
+    public static Stage EventManagerStage = new Stage();
 
-    public static FXMLLoader EMLoader;
+    public static int rowCount = 3;//a for loop will be bounded by this number
+    public static int Index = 0;
+    public static ArrayList<FXMLLoader> EventManagerLoaderList = new ArrayList<>(3);
     public static FXMLLoader EMContainerLoader;
 
+    public static boolean runState = false;
 
-    public Parent root1;
-    public static Parent root2;
-    public static Scene scene2;
+
+    public Parent EventManagerRoot;
+    public static Parent EventManagerContainerRoot;
+    public static Scene EventManagerScene;
+
+
+
+
 
 
 
 
     @Override
     public void start(Stage stage) throws Exception {
-        EMContainerLoader = new FXMLLoader(getClass().getResource("/EventManagerContainer.fxml"));
-        root2 = EMContainerLoader.load();
-        scene2 = new Scene(root2);
 
-        EMContainerController = EMContainerLoader.getController();
-        for(int i = 0; i < count; i++){
-            EMLoader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
-            root1 = EMLoader.load();
+        if(runState == false){
+            EMContainerLoader = new FXMLLoader(getClass().getResource("/EventManagerContainer.fxml"));
+            EventManagerContainerRoot = EMContainerLoader.load();
+            EventManagerScene = new Scene(EventManagerContainerRoot);
 
-            EMController = EMLoader.getController();
-            EMController.EMCLabel.setLayoutY(50);
-            EMController.ShowInfoButton.setLayoutX(150);
-            EMController.ShowInfoButton.setLayoutY(50);
-            EMController.EditInfoButton.setLayoutX(150);
-            EMController.EditInfoButton.setLayoutY(50+35);
-            EMController.CancelEventButton.setLayoutX(150);
-            EMController.CancelEventButton.setLayoutY(50+70);
-            EMController.index = i;
-            //EMContainerList.add(root1);
-
-            EMContainerController.getVBoxContainer().getChildren().add(root1);
-            EMLoader.setController(EMController);
-            EMContainerLoaderList.add(EMLoader);
-            EMContainerList.add(EMController);
+            EventManagerContainerControllerObj = EMContainerLoader.getController();
+            for(int i = 0; i < rowCount; i++){
+                EventManagerLoaderList.add(i,new FXMLLoader(getClass().getResource("/EventManager.fxml")));
 
 
 
+                EventManagerRoot = EventManagerLoaderList.get(i).load();
+                EventManagerControllerList.add(i,EventManagerLoaderList.get(i).getController());
+
+
+                //set position of content
+                EventManagerControllerList.get(i).EMCLabel.setLayoutY(50);
+                EventManagerControllerList.get(i).ShowInfoButton.setLayoutX(150);
+                EventManagerControllerList.get(i).ShowInfoButton.setLayoutY(50);
+                EventManagerControllerList.get(i).EditInfoButton.setLayoutX(150);
+                EventManagerControllerList.get(i).EditInfoButton.setLayoutY(50+35);
+                EventManagerControllerList.get(i).CancelEventButton.setLayoutX(150);
+                EventManagerControllerList.get(i).CancelEventButton.setLayoutY(50+70);
+
+
+
+                EventManagerContainerControllerObj.getVBoxContainer().getChildren().add(EventManagerRoot);
+                EventManagerLoaderList.get(i).setController(EventManagerControllerList.get(i));
+
+
+                EventManagerControllerList.get(i).setIndex(i);
+
+
+
+
+
+
+            }
+        }
+        runState = true;
+
+
+        for(int i = 0; i < rowCount; i++){
+            EventManagerControllerList.get(i).setEMA(this);
         }
 
 
-        s.setScene(scene2);
-        //EMContainerController.setCurrentStage(s);
-        EMContainerController.setCurrentScene(scene2);
+        EventManagerStage.setScene(EventManagerScene);
 
-        s.show();
+        EventManagerContainerControllerObj.setCurrentScene(EventManagerScene);
+
+        EventManagerStage.show();
 
 
 
@@ -88,75 +114,93 @@ public class EventManagerApp extends Application {
 
 
 
-            //EMContainerController = EMContainerLoader.getController();
 
-            count = count+1;
-            EMLoader = new FXMLLoader(getClass().getResource("/EventManager.fxml"));
+            EventManagerLoaderList.add(rowCount, new FXMLLoader(getClass().getResource("/EventManager.fxml")));
 
 
+            EventManagerRoot = EventManagerLoaderList.get(rowCount).load();
+            EventManagerControllerList.add(EventManagerLoaderList.get(rowCount).getController());
 
-            root1 = EMLoader.load();
-            EMController = EMLoader.getController();
-
-            EMController.EMCLabel.setLayoutY(50);
-            EMController.ShowInfoButton.setLayoutX(150);
-            EMController.ShowInfoButton.setLayoutY(50);
-            EMController.EditInfoButton.setLayoutX(150);
-            EMController.EditInfoButton.setLayoutY(50+35);
-            EMController.CancelEventButton.setLayoutX(150);
-            EMController.CancelEventButton.setLayoutY(50+70);
-            EMController.index=count-1;
+            EventManagerControllerList.get(rowCount).EMCLabel.setLayoutY(50);
+            EventManagerControllerList.get(rowCount).ShowInfoButton.setLayoutX(150);
+            EventManagerControllerList.get(rowCount).ShowInfoButton.setLayoutY(50);
+            EventManagerControllerList.get(rowCount).EditInfoButton.setLayoutX(150);
+            EventManagerControllerList.get(rowCount).EditInfoButton.setLayoutY(50+35);
+            EventManagerControllerList.get(rowCount).CancelEventButton.setLayoutX(150);
+            EventManagerControllerList.get(rowCount).CancelEventButton.setLayoutY(50+70);
 
 
-            //EMContainerList.add(EMLoader.getController());
-            EMContainerController.getVBoxContainer().getChildren().add(root1);
-            //EMContainerList.add(root1);
 
-            //for(int i = 0; i < count; i++){
-                //System.out.println(EMContainerList.get(i).index);
-            //}
 
+            EventManagerControllerList.get(rowCount).setIndex(rowCount);
+            writer.addEvent();
+
+
+
+
+
+            EventManagerContainerControllerObj.getVBoxContainer().getChildren().add(EventManagerRoot);
+
+            for(int i = 0; i < rowCount; i++){
+                EventManagerControllerList.get(i).setEMA(this);
+            }
+
+            rowCount = rowCount+1;
             
 
     }
 
-
     public void refreshVBox(){
-        scene2.setRoot(root2);
-        s.setScene(scene2);
-        s.show();
+        EventManagerScene.setRoot(EventManagerContainerRoot);
+        EventManagerStage.setScene(EventManagerScene);
+        EventManagerStage.show();
     }
 
 
-    public void showInformation()throws  Exception{
-        EMController = EMContainerList.getFirst();
 
+
+
+
+
+    public void setEventManagerContainerController(EventManagerContainerController controller){
+        EventManagerContainerControllerObj = controller;
     }
 
-
-    public EventManagerController getEMController(){
-        return EMLoader.getController();
-    }
-    public EventManagerContainerController getEMContainerController(){return EMContainerLoader.getController();}
     public FXMLLoader getEMContainerLoader(){
         return EMContainerLoader;
     }
 
 
 
-    public void initializeStuff() throws Exception{
 
+
+    public void setIndex(int i){
+        Index = i;
     }
 
-
-    public Stage getStage(){
-        return s;
+    public void setRowCount(int rowcount){
+        rowCount = rowcount;
     }
+    public int convertCharToInt(CharSequence sq){
+        System.out.println(sq);
+        int len = sq.length();
+        int[] arr = sq.chars().toArray();
+        System.out.println(arr[0]);
+        int num = 0;
+        int pwr = 10;
+        for(int i = 0; i < len-2; i++){
+            pwr = pwr*10;
+        }
 
-    public Scene getScene2(){
-        return scene2;
+        for(int i = len-1; i >= 0; i--){
+            num = num+(arr[i]*(pwr));
+            pwr = pwr/10;
+
+        }
+
+        System.out.println(num);
+        return num;
     }
-
 
     public static void main(String[] args) {launch();}
 }

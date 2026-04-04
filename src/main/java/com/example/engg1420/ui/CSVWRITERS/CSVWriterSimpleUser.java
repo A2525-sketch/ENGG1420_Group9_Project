@@ -11,7 +11,7 @@ public class CSVWriterSimpleUser {
     public void addUser(User user) throws IOException {
         try (FileWriter writer = new FileWriter(FILE_PATH, true)) {
 
-            writer.append("\n"); // new row
+            writer.append("\n");
             writer.append(user.getId()).append(",");
             writer.append(user.getName()).append(",");
             writer.append(user.getEmail()).append(",");
