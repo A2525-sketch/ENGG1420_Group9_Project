@@ -3,16 +3,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.engg1420.ui.EventManagerController">
-<children>
-    <Label fx:id="EMCLabel" text="name here"/>
-    <Button fx:id="ShowInfoButton"  layoutY="35" onAction="#goShowInfo" text="info"/>
-    <Button fx:id="EditInfoButton" layoutY="70" onAction="#goEditInfo" text="edit info"/>
-    <Button fx:id="CancelEventButton" text="cancel"/>
-</children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.engg1420.ui.EventManagerController">
+    <children>
+        <AnchorPane layoutX="4.0" layoutY="3.0" prefHeight="390.0" prefWidth="594.0" style="-fx-background-color: #353935;">
+            <children>
+                <Label fx:id="EMCLabel" layoutX="250.0" layoutY="60.0"
+                       style="-fx-text-fill: #FFCCCB;" text="Name Here" />
 
+                <Button fx:id="ShowInfoButton" layoutX="200.0" layoutY="120.0"
+                        mnemonicParsing="false" onAction="#goShowInfo"
+                        prefHeight="50.0" prefWidth="180.0"
+                        style="-fx-background-color: #FFCCCB;"
+                        text="Show Info" />
 
+                <Button fx:id="EditInfoButton" layoutX="200.0" layoutY="190.0"
+                        mnemonicParsing="false" onAction="#goEditInfo"
+                        prefHeight="50.0" prefWidth="180.0"
+                        style="-fx-background-color: #FFCCCB;"
+                        text="Edit Info" />
 
+                <Button fx:id="CancelEventButton" layoutX="200.0" layoutY="260.0"
+                        mnemonicParsing="false"
+                        prefHeight="50.0" prefWidth="180.0"
+                        style="-fx-background-color: #FFCCCB;"
+                        text="Cancel Event" />
+            </children>
+        </AnchorPane>
+    </children>
 </AnchorPane>
-
 

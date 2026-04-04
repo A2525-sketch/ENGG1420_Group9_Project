@@ -9,8 +9,8 @@
     <children>
         <Label layoutX="223.0" layoutY="14.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="WaitList Overview" />
       <Button fx:id="login" layoutX="537.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleLogin" style="-fx-background-color: #FFCCCB;" text="Login" />
-      <Button fx:id="Join" layoutX="489.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleJoin" style="-fx-background-color: #FFCCCB;" text="Join" />
-      <Button fx:id="Cancel" layoutX="336.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #FFCCCB;" text="Cancel" />
+      <Button fx:id="join" layoutX="489.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleJoin" style="-fx-background-color: #FFCCCB;" text="Join" />
+      <Button fx:id="cancel" layoutX="336.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #FFCCCB;" text="Cancel" />
       <Label fx:id="loginstatus" layoutX="31.0" layoutY="372.0" style="-fx-text-fill: #FFCCCB;" text="NOT LOGGED IN" />
       <ListView fx:id="waitlistlist" layoutX="230.0" layoutY="71.0" prefHeight="281.0" prefWidth="166.0" style="-fx-background-color: #FFCCCB;" />
       <Label layoutX="263.0" layoutY="41.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="Waitlists" />
@@ -18,6 +18,6 @@
       <Label layoutX="65.0" layoutY="41.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="Saved Waitlist" />
       <Label layoutX="454.0" layoutY="41.0" style="-fx-font-size: 18; -fx-text-fill: #FFCCCB; -fx-font-weight: bold;" text="Position" />
       <ListView layoutX="406.0" layoutY="71.0" prefHeight="281.0" prefWidth="166.0" style="-fx-background-color: #FFCCCB;" />
-      <Button fx:id="Cancel1" layoutX="396.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #FFCCCB;" text="View Position" />
+      <Button fx:id="cancel1" layoutX="396.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #FFCCCB;" text="View Position" />
     </children>
 </AnchorPane>
