@@ -11,11 +11,10 @@ public class Booking {
     private BookingStatus status;
 
    //constructor
-    public Booking(String bookingId, String userId, String eventId, String createdAt, BookingStatus status) {
+    public Booking(String bookingId, String userId, String eventId, BookingStatus status) {
         this.bookingId = bookingId;
         this.userId = userId;
         this.eventId = eventId;
-        this.createdAt = createdAt;
         this.status = status;
     }
 
