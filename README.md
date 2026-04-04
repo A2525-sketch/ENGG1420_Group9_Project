@@ -87,7 +87,41 @@ After clicking on Users button from MainApp it should open a new app that looks 
 
 Once this is open the CSV reader will open users.csv from the data folder and Read booking to add them to the observable list.
 
+
 Booking Manager has 4 features shown at the bottom as buttons Login, Book, Cancel and Refresh
+
+1. Login
+   When Login is pressed it will open a popup to force the user to login, the other 3 buttons will not work unless the app is given a valid user ID to fetch the info.
+
+User popup
+
+<img width="598" height="426" alt="image" src="https://github.com/user-attachments/assets/233e63f1-3386-46b6-83da-88416b60bfaf" />
+
+Display when invalid user id is entered
+
+<img width="592" height="421" alt="image" src="https://github.com/user-attachments/assets/744b2e81-a285-41c5-80f3-fe2f81f564a4" />
+
+Display when valid user id is entered
+
+<img width="601" height="426" alt="image" src="https://github.com/user-attachments/assets/21bb4d6c-d26a-4c27-b9eb-828f9a09d5a2" />
+
+By Pressing the Book Button you are able to create or edit a per user booking info and display your saved bookings (creates/edits csv in data folder)
+
+<img width="599" height="460" alt="image" src="https://github.com/user-attachments/assets/2136d7da-901a-44ea-83a9-7fbcff6792a7" />
+
+
+<img width="364" height="194" alt="image" src="https://github.com/user-attachments/assets/0f694627-b5f5-4bb9-9de1-78336bd68f2b" />
+
+
+<img width="612" height="278" alt="image" src="https://github.com/user-attachments/assets/1cbc3b2e-f9ea-416f-a02d-d03ed505a02d" />
+
+The Refresh button is working to reload in case of a bug or improper loading on start up and the Cancel button will remove the selected booking from the list and CSV file.
+
+
+
+
+
+
 
 
 
