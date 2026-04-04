@@ -8,7 +8,8 @@
     <Label fx:id="EMCLabel" text="name here"/>
     <Button fx:id="ShowInfoButton"  layoutY="35" onAction="#goShowInfo" text="info"/>
     <Button fx:id="EditInfoButton" layoutY="70" onAction="#goEditInfo" text="edit info"/>
-    <Button fx:id="CancelEventButton" text="cancel"/>
+    <Button fx:id="CancelEventButton" onAction="#goCancel" text="cancel"/>
+
 </children>
 
 

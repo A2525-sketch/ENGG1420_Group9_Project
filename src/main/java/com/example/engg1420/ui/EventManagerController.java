@@ -90,14 +90,14 @@ public class EventManagerController {
         s.show();
     }
 
-
-
     public void setIndex(int i){
         index = i;
     }
 
 
+    public void goCancel(){
 
+    }
 
     public void setEMA(EventManagerApp E){
         EMA = E;

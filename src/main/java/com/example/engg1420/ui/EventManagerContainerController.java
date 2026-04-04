@@ -10,11 +10,7 @@ import javafx.stage.Stage;
 
 public class EventManagerContainerController {
     public static EventManagerApp EventManagerAppObj = new EventManagerApp();
-    public CSVReaderSimpleEvent CsvEventTest = new CSVReaderSimpleEvent();
-
-
-
-    public static FXMLLoader EventManagerContainerLoader;
+    public static FXMLLoader EventManagerContainerLoader;//
 
 
 

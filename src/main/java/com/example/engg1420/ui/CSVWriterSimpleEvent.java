@@ -55,6 +55,7 @@ public class CSVWriterSimpleEvent {
             if(i == index){
                 writer.writeNext(change.split(",", -1));
 
+
             }else{
 
                 writer.writeNext(strList.get(i));
@@ -67,4 +68,6 @@ public class CSVWriterSimpleEvent {
 
 
     }
+
+
 }
