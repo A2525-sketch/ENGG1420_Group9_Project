@@ -20,6 +20,19 @@ public class EventType {
         this.eventType = eventType;
         this.event = event;
     }
+    public EventType(String eventid, String title, String date, String location, int capacity, String eventType){
+        this.eventid = eventid;
+        this.title = title;
+        this.date = date;
+        this.location = location;
+        this.capacity = capacity;
+        this.eventType = eventType;
+
+    }
+
+
+
+    public EventType(){}
     //seat controllers
 
     public boolean hasOpenSeats(){

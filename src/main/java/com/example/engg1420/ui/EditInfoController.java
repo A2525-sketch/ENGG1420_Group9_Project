@@ -1,5 +1,6 @@
 package com.example.engg1420.ui;
 
+import com.example.engg1420.model.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
@@ -10,6 +11,8 @@ import javafx.stage.Stage;
 
 public class EditInfoController {
     public EventManagerApp EMA = new EventManagerApp();
+
+
 
 
 
@@ -36,13 +39,11 @@ public class EditInfoController {
     public void goApply()throws Exception{
 
         EditInfoController e = EditInfoLoader.getController();
-        EMA.eventIDList.set(EMA.Index, e.eventidField.getText());
-        EMA.titleList.set(EMA.Index, e.titleField.getText());
-        EMA.dateList.set(EMA.Index, e.dateField.getText());
-        EMA.locationList.set(EMA.Index, e.locationField.getText());
-        EMA.capacityList.set(EMA.Index, e.capacityField.getText());
-        EMA.eventTypeList.set(EMA.Index, e.eventtypeField.getText());
-        //System.out.println(EMA.eventIDList.get(EMA.Index));
+
+        EventType ET= new EventType(eventidField.getText(), titleField.getText(), dateField.getText(), locationField.getText(),EMA.convertCharToInt(capacityField.getCharacters()), eventtypeField.getText());
+        CSVWriterSimpleEvent writer = new CSVWriterSimpleEvent();
+        writer.modifyEvent(ET.toString(), EMA.Index, EMA.rowCount);
+
     }
 
     @FXML

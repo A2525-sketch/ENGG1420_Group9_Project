@@ -8,10 +8,15 @@ public class ShowInfoController {
 
     @FXML
     public Label eventid2;
+    @FXML
     public Label title2;
+    @FXML
     public Label date2;
+    @FXML
     public Label location2;
+    @FXML
     public Label capacity2;
+    @FXML
     public Label eventtype2;
 
 
@@ -33,8 +38,7 @@ public class ShowInfoController {
     public void setDate(String str){date2.setText("date: " + str);}
     public void setLocation(String str){location2.setText("location: " + str);}
     public void setCapacity(String str){capacity2.setText("capacity: " + str);}
-    public void setEventType(String str){
-        eventtype2.setText("eventType: " + str);}
+    public void setEventType(String str){eventtype2.setText("eventType: " + str);}
 
 
     public void setStage(Stage stage){

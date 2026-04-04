@@ -36,12 +36,24 @@ public class CSVReaderSimpleEvent {
 
         CSVReader reader = new CSVReader(new FileReader("src/main/resources/Final Project Files/events.csv"));
         List<String[]> rows = reader.readAll();
+        reader.close();
         return rows.size();
+
 
 
     }
 
-    /*public String getRows(){
+    public String getInfo(int index, int col) throws Exception{
+        CSVReader reader = new CSVReader(new FileReader("src/main/resources/Final Project Files/events.csv"));
+        List<String[]> rows = reader.readAll();
+        String[] row = rows.get(index);
+        System.out.println(index);
+        System.out.println(row[col]);
+        System.out.println("---------");
+        reader.close();
+        return row[col];
 
-    }*/
+    }
+
+    //public String getRow(){}
 }

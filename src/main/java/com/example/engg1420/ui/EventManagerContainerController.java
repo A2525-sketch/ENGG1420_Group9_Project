@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 public class EventManagerContainerController {
     public static EventManagerApp EventManagerAppObj = new EventManagerApp();
+    public CSVReaderSimpleEvent CsvEventTest = new CSVReaderSimpleEvent();
 
 
 
@@ -36,7 +37,9 @@ public class EventManagerContainerController {
     @FXML
     public void goAddEvent()throws Exception{
         EventManagerContainerLoader = EventManagerAppObj.getEMContainerLoader();
+
         EventManagerAppObj.setEventManagerContainerController(EventManagerContainerLoader.getController());
+
         EventManagerAppObj.addToVBox();
         EventManagerAppObj.refreshVBox();
 

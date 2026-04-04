@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.math.*;
 
 
 import java.io.IOException;
@@ -14,14 +15,8 @@ public class EventManagerApp extends Application {
 
     public static ArrayList<EventManagerController> EventManagerControllerList = new ArrayList<>(3);
     public static EventManagerContainerController EventManagerContainerControllerObj = new EventManagerContainerController();
+    public CSVWriterSimpleEvent writer= new CSVWriterSimpleEvent();
 
-
-    public static ArrayList<String> eventIDList = new ArrayList<>(3);
-    public static ArrayList<String> titleList= new ArrayList<>(3);
-    public static ArrayList<String> dateList= new ArrayList<>(3);
-    public static ArrayList<String> locationList= new ArrayList<>(3);
-    public static ArrayList<String> capacityList= new ArrayList<>(3);
-    public static ArrayList<String> eventTypeList= new ArrayList<>(3);
     public static Stage EventManagerStage = new Stage();
 
     public static int rowCount = 3;//a for loop will be bounded by this number
@@ -77,12 +72,8 @@ public class EventManagerApp extends Application {
 
 
                 EventManagerControllerList.get(i).setIndex(i);
-                eventIDList.add(i, "");
-                titleList.add(i, "");
-                dateList.add(i, "");
-                locationList.add(i, "");
-                capacityList.add(i, "");
-                eventTypeList.add(i, "");
+
+
 
 
 
@@ -142,16 +133,13 @@ public class EventManagerApp extends Application {
 
 
             EventManagerControllerList.get(rowCount).setIndex(rowCount);
-            eventIDList.add(rowCount, "");
-            titleList.add(rowCount, "");
-            dateList.add(rowCount, "");
-            locationList.add(rowCount, "");
-            capacityList.add(rowCount, "");
-            eventTypeList.add(rowCount, "");
+            writer.addEvent();
+
+
+
+
 
             EventManagerContainerControllerObj.getVBoxContainer().getChildren().add(EventManagerRoot);
-
-
 
             for(int i = 0; i < rowCount; i++){
                 EventManagerControllerList.get(i).setEMA(this);
@@ -161,12 +149,6 @@ public class EventManagerApp extends Application {
             
 
     }
-
-
-
-
-
-
 
     public void refreshVBox(){
         EventManagerScene.setRoot(EventManagerContainerRoot);
@@ -199,7 +181,26 @@ public class EventManagerApp extends Application {
     public void setRowCount(int rowcount){
         rowCount = rowcount;
     }
+    public int convertCharToInt(CharSequence sq){
+        System.out.println(sq);
+        int len = sq.length();
+        int[] arr = sq.chars().toArray();
+        System.out.println(arr[0]);
+        int num = 0;
+        int pwr = 10;
+        for(int i = 0; i < len-2; i++){
+            pwr = pwr*10;
+        }
 
+        for(int i = len-1; i >= 0; i--){
+            num = num+(arr[i]*(pwr));
+            pwr = pwr/10;
+
+        }
+
+        System.out.println(num);
+        return num;
+    }
 
     public static void main(String[] args) {launch();}
 }

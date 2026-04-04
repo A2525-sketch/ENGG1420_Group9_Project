@@ -1,22 +1,14 @@
 package com.example.engg1420.ui;//under this folder
-//com.example.engg1420.ui.EventManagerController
 
-import javafx.application.Application;
-import com.example.engg1420.model.Event;
-import com.example.engg1420.model.EventType;
-import com.example.engg1420.model.Workshop;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
+
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
 
 
 
@@ -24,21 +16,15 @@ import java.util.ArrayList;
 
 
 
-/*public String getEventid(){return eventid;}
-public String getTitle(){return title;}
-public String getDate(){return date;}
-public String getLocation(){return location;}
-public int getCapacity(){return capacity;}
-public abstract String getEventType();*/
 
-//@FXML allows fxml file to access different methods when action is performed
+
 
 
 public class EventManagerController {
     public static EventManagerApp EMA;
     public static EditInfoController EIC = new EditInfoController();
     public static ShowInfoController SIC = new ShowInfoController();
-
+    public CSVReaderSimpleEvent CsvEventTest= new CSVReaderSimpleEvent();
     public FXMLLoader loader1;
     public FXMLLoader loader2;
     public int index;
@@ -84,19 +70,18 @@ public class EventManagerController {
 
     @FXML
     public void goShowInfo()throws Exception{
-
+        EMA.Index = index;
 
         loader1 = new FXMLLoader(getClass().getResource("/ShowInfo.fxml"));
         Parent root = loader1.load();
         SIC = loader1.getController();
 
-
-        SIC.setEventIdText(EMA.eventIDList.get(index));
-        SIC.setTitle(EMA.titleList.get(index));
-        SIC.setDate(EMA.dateList.get(index));
-        SIC.setLocation(EMA.locationList.get(index));
-        SIC.setCapacity(EMA.capacityList.get(index));
-        SIC.setEventType(EMA.eventTypeList.get(index));
+        SIC.setEventIdText(CsvEventTest.getInfo(EMA.Index, 0));
+        SIC.setTitle(CsvEventTest.getInfo(EMA.Index, 1));
+        SIC.setDate(CsvEventTest.getInfo(EMA.Index, 2));
+        SIC.setLocation(CsvEventTest.getInfo(EMA.Index, 3));
+        SIC.setCapacity(CsvEventTest.getInfo(EMA.Index, 4));
+        SIC.setEventType(CsvEventTest.getInfo(EMA.Index, 5));
 
         SIC = loader1.getController();
         Scene scene = new Scene(root);
@@ -104,23 +89,6 @@ public class EventManagerController {
         s.setScene(scene);
         s.show();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -134,9 +102,6 @@ public class EventManagerController {
     public void setEMA(EventManagerApp E){
         EMA = E;
     }
-
-
-
 
 
 }
