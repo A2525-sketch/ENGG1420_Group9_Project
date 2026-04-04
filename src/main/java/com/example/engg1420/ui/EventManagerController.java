@@ -61,7 +61,7 @@ public class EventManagerController {
     public double positionY;
 
 
-
+    //public static
 
 
 
